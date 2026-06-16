@@ -11,9 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#ffffff;--bg2:#f4f6fa;--panel:#ffffff;--navy:#0a1c3f;
-  --toin:#0b2e74;--blue:#1c53d4;--blue-bright:#123a9e;--ice:#1c53d4;
-  --text:#0e1d38;--muted:#41506b;--muted-2:#6b7a95;
+  --bg:#ffffff;--bg2:#f2f5fd;--panel:#ffffff;--navy:#172a78;
+  --toin:#172a78;--blue:#2a53e6;--blue-bright:#1b3ec6;--ice:#2a53e6;
+  --text:#16234f;--muted:#46557c;--muted-2:#6f7ea2;
   --line:rgba(10,28,63,.16);--line-soft:rgba(10,28,63,.09);
   --maxw:1280px;--ease:cubic-bezier(.16,1,.3,1);--ease2:cubic-bezier(.65,0,.2,1);
 }
@@ -79,7 +79,7 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
 .lang-menu.open{opacity:1;visibility:visible;transform:none}
 .lang-menu button{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:transparent;border:0;color:var(--text);
   cursor:pointer;padding:10px 13px;border-radius:8px;font-family:inherit;font-size:.86rem;transition:.18s}
-.lang-menu button:hover{background:rgba(28,83,212,.07)}
+.lang-menu button:hover{background:rgba(42,83,230,.07)}
 .lang-menu button .flag{font-size:1.05rem;line-height:1}
 .lang-menu button .native{color:var(--muted);font-size:.72rem;margin-left:auto}
 .lang-menu button.active{color:var(--ice)}
@@ -93,9 +93,9 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
 @keyframes kenburns{to{transform:scale(1)}}
 .hero-media::after{content:"";position:absolute;inset:0;
   background:
-    linear-gradient(180deg,rgba(7,16,38,.62) 0%,rgba(7,16,38,.28) 34%,rgba(6,14,32,.62) 72%,rgba(5,11,26,.99) 100%),
-    linear-gradient(110deg,rgba(8,22,55,.7) 0%,rgba(8,22,55,.2) 58%,transparent 100%),
-    linear-gradient(0deg,rgba(10,28,63,.22),rgba(10,28,63,.22));}
+    linear-gradient(180deg,rgba(12,26,86,.6) 0%,rgba(12,26,86,.26) 34%,rgba(11,22,72,.6) 72%,rgba(9,18,58,.98) 100%),
+    linear-gradient(110deg,rgba(20,44,140,.7) 0%,rgba(20,44,140,.2) 58%,transparent 100%),
+    linear-gradient(0deg,rgba(34,68,180,.2),rgba(34,68,180,.2));}
 .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:9vh}
 .hero-eyebrow{display:flex;align-items:center;gap:16px;font-family:"Manrope";font-size:.72rem;letter-spacing:.34em;
   color:#cfe0ff;text-transform:uppercase;margin-bottom:30px;
@@ -117,7 +117,7 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
   padding:16px 32px;border-radius:2px;cursor:pointer;transition:.4s var(--ease);text-transform:uppercase;border:1px solid transparent}
 .btn .ar{transition:transform .4s var(--ease)}
 .btn:hover .ar{transform:translateX(5px)}
-.btn-fill{background:var(--blue);color:#fff;box-shadow:0 14px 40px rgba(28,83,212,.4)}
+.btn-fill{background:var(--blue);color:#fff;box-shadow:0 14px 40px rgba(42,83,230,.4)}
 .btn-fill:hover{background:var(--blue-bright);box-shadow:0 18px 50px rgba(63,120,255,.5)}
 .btn-line{border-color:rgba(255,255,255,.45);color:#fff}
 .btn-line:hover{border-color:#fff;background:rgba(255,255,255,.1)}
@@ -181,7 +181,7 @@ section{position:relative}
 
 /* TRACK RECORD */
 .creds{background:var(--bg2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
-.creds::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 15% 0%,rgba(28,83,212,.06),transparent 60%)}
+.creds::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 15% 0%,rgba(42,83,230,.06),transparent 60%)}
 .creds .wrap{position:relative}
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:60px}
 .stat{background:#fff;padding:42px 34px}
@@ -198,7 +198,7 @@ section{position:relative}
   padding:46px 0;border-top:1px solid var(--line-soft);transition:.5s var(--ease);position:relative}
 .svc-row:last-child{border-bottom:1px solid var(--line-soft)}
 .svc-row::before{content:"";position:absolute;left:-36px;right:-36px;top:0;bottom:0;
-  background:linear-gradient(90deg,rgba(28,83,212,.1),transparent 70%);opacity:0;transition:.5s;z-index:-1}
+  background:linear-gradient(90deg,rgba(42,83,230,.1),transparent 70%);opacity:0;transition:.5s;z-index:-1}
 .svc-row:hover::before{opacity:1}
 .svc-row .idx{font-family:"Manrope";font-weight:200;font-size:1.4rem;color:var(--blue-bright)}
 .svc-row .mid h3{font-weight:600;font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:.02em;transition:.4s var(--ease);color:var(--navy)}
@@ -227,7 +227,7 @@ section{position:relative}
 .partners:hover .marquee{animation-play-state:paused}
 .marquee .logo{flex:0 0 auto;height:108px;min-width:230px;padding:0 46px;background:#fff;border:1px solid var(--line);border-radius:16px;
   display:flex;align-items:center;justify-content:center;opacity:1;transition:.4s var(--ease);box-shadow:0 14px 36px rgba(10,28,63,.08)}
-.marquee .logo:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(28,83,212,.18)}
+.marquee .logo:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(42,83,230,.18)}
 .marquee .logo img{height:50px;width:auto}
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
@@ -235,7 +235,7 @@ section{position:relative}
 .news .news-list{margin-top:54px;display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
 .news-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;
   display:flex;flex-direction:column;transition:.45s var(--ease)}
-.news-card:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(10,28,63,.13);border-color:rgba(28,83,212,.35)}
+.news-card:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(10,28,63,.13);border-color:rgba(42,83,230,.35)}
 .news-card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--bg2)}
 .news-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .news-card:hover .thumb img{transform:scale(1.06)}
@@ -249,7 +249,7 @@ section{position:relative}
 
 /* CONTACT */
 .contact{position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 80% 100%,rgba(28,83,212,.06),transparent 60%)}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 80% 100%,rgba(42,83,230,.06),transparent 60%)}
 .contact .ct-head{position:relative;margin-bottom:54px;max-width:64ch}
 .contact .grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .info-row{display:flex;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid var(--line-soft);font-size:1.04rem}
@@ -268,16 +268,16 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line-soft)}
 .foot .sm{color:var(--muted-2);font-family:"Manrope";font-size:.72rem;letter-spacing:.06em}
 
 /* ===== 桐蔭ネイビーのセクション（白に対するアクセント） ===== */
-.creds{background:linear-gradient(160deg,#0a1c3f 0%,#0b2548 60%,#0a1c3f 100%);border-color:rgba(255,255,255,.08)}
+.creds{background:linear-gradient(150deg,#172c80 0%,#2549b8 58%,#16277a 100%);border-color:rgba(255,255,255,.08)}
 .creds::before{background:radial-gradient(80% 120% at 15% 0%,rgba(63,120,255,.18),transparent 60%)}
 .creds .eyebrow{color:#8fb2ff}.creds .eyebrow::before{background:#8fb2ff}
 .creds .h2{color:#fff}
 .creds .stat-grid{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.12)}
-.creds .stat{background:#0b223f}
+.creds .stat{background:#16297a}
 .creds .stat .n{color:#fff}.creds .stat .n .suf{color:#7aa2ff}
 .creds .stat .l{color:rgba(255,255,255,.6)}
 
-.contact{background:linear-gradient(160deg,#0a1c3f,#081530)}
+.contact{background:linear-gradient(150deg,#172c80,#102058)}
 .contact::before{background:radial-gradient(70% 90% at 80% 100%,rgba(63,120,255,.16),transparent 60%)}
 .contact .eyebrow{color:#8fb2ff}.contact .eyebrow::before{background:#8fb2ff}
 .contact .h2{color:#fff}.contact .sub{color:rgba(255,255,255,.7)}
@@ -288,7 +288,7 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line-soft)}
 .contact .form input::placeholder,.contact .form textarea::placeholder{color:rgba(255,255,255,.4)}
 .contact .form input:focus,.contact .form textarea:focus{border-color:#7aa2ff;background:rgba(255,255,255,.1)}
 
-footer{background:#081530;border-color:rgba(255,255,255,.1)}
+footer{background:#102058;border-color:rgba(255,255,255,.1)}
 footer .brand b{color:#fff}footer .brand .bm{border-color:#fff}
 footer .sm{color:rgba(255,255,255,.5)}
 

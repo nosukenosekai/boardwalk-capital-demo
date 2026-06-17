@@ -88,7 +88,7 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
 /* HERO */
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 66%;
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 52%;
   opacity:0;animation:kenburns 13s ease-out forwards, heroFade 1.6s ease forwards;will-change:transform,opacity}
 @keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.18)}}
 @keyframes heroFade{to{opacity:1}}
@@ -208,7 +208,7 @@ section{position:relative}
 .svc-row .mid h3{font-weight:600;font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:.02em;transition:.4s var(--ease);color:var(--navy)}
 .svc-row:hover .mid h3{transform:translateX(8px)}
 .svc-row .mid p{color:var(--muted);margin-top:12px;max-width:62ch;font-size:1.06rem;line-height:1.85}
-.svc-row .go{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--muted);transition:.4s var(--ease)}
+.svc-row .go{display:none}
 .svc-row:hover .go{border-color:var(--blue-bright);color:var(--ice);transform:rotate(-45deg)}
 
 /* LEADERSHIP */
@@ -429,9 +429,9 @@ footer .sm{color:rgba(255,255,255,.5)}
     <span class="eyebrow r" data-i18n="cred.label">Track Record</span>
     <h2 class="h2 jp r d1" data-i18n="cred.title">豊富な経験と、グローバルな知見。</h2>
     <div class="stat-grid" data-stagger>
+      <div class="stat"><div class="n" data-count="1989" data-plain="1">1989</div><div class="l" data-i18n="cred.s3">創業者の金融キャリア</div></div>
       <div class="stat"><div class="n" data-count="2016" data-plain="1">2016</div><div class="l" data-i18n="cred.s1">創業年</div></div>
-      <div class="stat"><div class="n" data-count="9"><span data-num>0</span><span class="suf">+</span></div><div class="l" data-i18n="cred.s2">投資先・パートナー</div></div>
-      <div class="stat"><div class="n" data-count="30"><span data-num>0</span><span class="suf">+</span></div><div class="l" data-i18n="cred.s3">グローバル金融の経験（年）</div></div>
+      <div class="stat"><div class="n" data-count="50"><span data-num>0</span><span class="suf">+</span></div><div class="l" data-i18n="cred.s2">投資先</div></div>
       <div class="stat"><div class="n" data-count="3"><span data-num>0</span></div><div class="l" data-i18n="cred.s4">事業領域</div></div>
     </div>
   </div>
@@ -500,7 +500,6 @@ footer .sm{color:rgba(255,255,255,.5)}
     <p class="sub jp r d2" data-i18n="ptn.sub">創業以来、さまざまな業界の成長企業とともに歩んできました。</p>
   </div>
   <div class="marquee" id="marquee"></div>
-  <div class="wrap"><div class="pcompanies" id="pcompanies" data-stagger></div></div>
 </section>
 
 <!-- NEWS -->
@@ -572,7 +571,7 @@ ja:{
 "philo.label":"Philosophy","philo.quote":"挑戦する企業と人材の、<br><span class=\"accent\">成長を支える</span>。",
 "philo.body":"2016年の創業以来、私たちはアドバイザリー・インキュベーション・投資を通じて、国内外で挑戦する企業や起業家を支援してきました。金融の最前線で培った知見と人脈を活かし、資金だけでなく、事業の成長そのものに伴走します。アジアをはじめ海外の企業・起業家とも連携し、グローバルに事業を展開しています。",
 "cred.label":"Track Record","cred.title":"豊富な経験と、グローバルな知見。",
-"cred.s1":"創業年","cred.s2":"投資先・パートナー","cred.s3":"グローバル金融の経験（年）","cred.s4":"事業領域",
+"cred.s1":"創業年","cred.s2":"投資先","cred.s3":"創業者の金融キャリア","cred.s4":"事業領域",
 "cred.ft":"英『The Banker』誌（2012年）。創業者・那珂通雅が率いた金融ブティックが、その先進性を国際的に評価されました。",
 "svc.label":"Services","svc.title":"3つの領域で、企業を支援します。",
 "svc.1t":"アドバイザリー","svc.1d":"資本政策、資金調達、M&A、海外展開など、経営の重要な意思決定を、金融の専門知識でサポートします。",
@@ -583,7 +582,7 @@ ja:{
 "team.b2":"慶應義塾大学法学部卒。三井物産にて為替・債券・株式・プライベートエクイティ投資などに従事し、英国・オランダで通算9年勤務。2019年に当社入社。",
 "team.b3":"早稲田大学理工学部卒。ソロモン・ブラザーズ証券の株式調査部にて精密機器セクターを担当し、Institutional Investor誌のアナリストランキングで4年連続1位。メリルリンチ、モルガン・スタンレーを歴任。",
 "team.b4":"慶應義塾大学経済学部卒、ウォートン・スクールMBA。野村證券、モルガン・スタンレー、新生銀行などを経て、PAGジャパン会長を歴任。海外ネットワークを担当。",
-"ptn.label":"Portfolio & Partners","ptn.title":"これまでの投資先・パートナー企業。",
+"ptn.label":"Portfolio","ptn.title":"これまでの主な投資先。",
 "news.label":"News","news.title":"ニュース","news.more":"すべて見る",
 "msg.title":"世界で通用する日本人を、<br><span class=\"accent\">一人でも多く創出したい。</span>",
 "msg.lead":"それは、私が長年抱き続けてきた信念であり、ボードウォーク・キャピタルの原点です。",
@@ -607,7 +606,7 @@ en:{
 "philo.label":"Philosophy","philo.quote":"Supporting the growth of<br><span class=\"accent\">ambitious companies and people</span>.",
 "philo.body":"Since our founding in 2016, we have supported companies and entrepreneurs in Japan and abroad through advisory, incubation and investment. Drawing on deep experience at the front lines of global finance, we back our partners not only with capital, but with the expertise and network to grow. Working with companies and entrepreneurs across Asia and beyond, we operate on a global scale.",
 "cred.label":"Track Record","cred.title":"Deep experience, global perspective.",
-"cred.s1":"Founded","cred.s2":"Portfolio & Partners","cred.s3":"Years in Global Finance","cred.s4":"Practice Areas",
+"cred.s1":"Founded","cred.s2":"Portfolio Companies","cred.s3":"Founder's finance career","cred.s4":"Practice Areas",
 "cred.ft":"Named “Most Innovative Boutique” by The Banker (2012). The financial boutique led by founder Michimasa Naka was recognized internationally for its innovation.",
 "svc.label":"Services","svc.title":"Three ways we support you.",
 "svc.1t":"Advisory","svc.1d":"We support key management decisions — capital strategy, fundraising, M&A and global expansion — with deep financial expertise.",
@@ -642,7 +641,7 @@ it:{
 "philo.label":"Filosofia","philo.quote":"Sosteniamo la crescita di<br><span class=\"accent\">imprese e persone ambiziose</span>.",
 "philo.body":"Dalla fondazione nel 2016 sosteniamo imprese e imprenditori in Giappone e all'estero attraverso consulenza, incubazione e investimenti. Grazie a una profonda esperienza nella finanza globale, offriamo non solo capitale, ma anche le competenze e la rete per crescere.",
 "cred.label":"Esperienza","cred.title":"Esperienza solida, prospettiva globale.",
-"cred.s1":"Fondazione","cred.s2":"Portfolio e partner","cred.s3":"Anni di finanza globale","cred.s4":"Aree di attività",
+"cred.s1":"Fondazione","cred.s2":"Aziende in portafoglio","cred.s3":"Carriera finanziaria del fondatore","cred.s4":"Aree di attività",
 "cred.ft":"Premiata come “Most Innovative Boutique” da The Banker (2012). La boutique finanziaria guidata dal fondatore Michimasa Naka è stata riconosciuta a livello internazionale per la sua innovazione.",
 "svc.label":"Servizi","svc.title":"Tre modi per sostenervi.",
 "svc.1t":"Consulenza","svc.1d":"Sosteniamo le decisioni strategiche — strategia del capitale, raccolta fondi, M&A ed espansione internazionale — con una solida competenza finanziaria.",
@@ -670,7 +669,7 @@ zh:{
 "philo.label":"理念","philo.quote":"支持志在挑战的<br><span class=\"accent\">企业与人才的成长</span>。",
 "philo.body":"自2016年创立以来，我们通过顾问、孵化与投资，支持日本及海外勇于挑战的企业与创业者。凭借在金融一线积累的专业与人脉，我们提供的不仅是资金，更陪伴企业实现成长。",
 "cred.label":"实绩","cred.title":"丰富的经验，全球的视野。",
-"cred.s1":"创立","cred.s2":"投资与合作企业","cred.s3":"全球金融经验（年）","cred.s4":"业务领域",
+"cred.s1":"创立","cred.s2":"投资企业","cred.s3":"创始人金融生涯","cred.s4":"业务领域",
 "cred.ft":"荣获英国《The Banker》杂志「最具创新精品机构」（2012年）。由创始人那珂通雅领导的金融精品机构，其创新性获得国际认可。",
 "svc.label":"业务内容","svc.title":"以三个领域支持企业。",
 "svc.1t":"顾问","svc.1d":"以金融专业，支持资本策略、融资、并购、海外拓展等经营层面的重要决策。",
@@ -698,7 +697,7 @@ fr:{
 "philo.label":"Philosophie","philo.quote":"Soutenir la croissance des<br><span class=\"accent\">entreprises et des personnes ambitieuses</span>.",
 "philo.body":"Depuis notre création en 2016, nous accompagnons des entreprises et des entrepreneurs au Japon et à l'étranger par le conseil, l'incubation et l'investissement. Forts d'une solide expérience de la finance mondiale, nous apportons non seulement du capital, mais aussi l'expertise et le réseau pour grandir.",
 "cred.label":"Références","cred.title":"Une expérience solide, une vision mondiale.",
-"cred.s1":"Création","cred.s2":"Portefeuille & partenaires","cred.s3":"Ans de finance mondiale","cred.s4":"Domaines",
+"cred.s1":"Création","cred.s2":"Sociétés en portefeuille","cred.s3":"Carrière du fondateur en finance","cred.s4":"Domaines",
 "cred.ft":"Élue « Most Innovative Boutique » par The Banker (2012). La boutique financière dirigée par le fondateur Michimasa Naka a été reconnue à l'international pour son innovation.",
 "svc.label":"Services","svc.title":"Trois façons de vous accompagner.",
 "svc.1t":"Conseil","svc.1d":"Nous accompagnons vos décisions clés — stratégie du capital, levée de fonds, M&A et expansion internationale — avec une solide expertise financière.",
@@ -726,7 +725,7 @@ ko:{
 "philo.label":"Philosophy","philo.quote":"도전하는 기업과 인재의,<br><span class=\"accent\">성장을 지원합니다</span>.",
 "philo.body":"2016년 창업 이래, 자문·인큐베이션·투자를 통해 국내외에서 도전하는 기업과 창업가를 지원해 왔습니다. 금융 최전선에서 쌓은 지식과 네트워크를 바탕으로, 자금뿐 아니라 사업의 성장 그 자체에 함께합니다.",
 "cred.label":"Track Record","cred.title":"풍부한 경험과 글로벌한 통찰.",
-"cred.s1":"창업 연도","cred.s2":"투자처·파트너","cred.s3":"글로벌 금융 경력(년)","cred.s4":"사업 영역",
+"cred.s1":"창업 연도","cred.s2":"투자처","cred.s3":"창업자의 금융 경력","cred.s4":"사업 영역",
 "cred.ft":"영국 『The Banker』지 ‘가장 혁신적인 부티크’ 수상(2012년). 창업자 나카 미치마사가 이끈 금융 부티크가 그 혁신성을 국제적으로 인정받았습니다.",
 "svc.label":"Services","svc.title":"세 가지 영역에서 기업을 지원합니다.",
 "svc.1t":"자문","svc.1d":"자본 정책, 자금 조달, M&A, 해외 진출 등 경영의 중요한 의사결정을 금융 전문성으로 지원합니다.",
@@ -750,7 +749,7 @@ es:{
 "philo.label":"Filosofía","philo.quote":"Apoyamos el crecimiento de<br><span class=\"accent\">empresas y personas ambiciosas</span>.",
 "philo.body":"Desde nuestra fundación en 2016, apoyamos a empresas y emprendedores en Japón y en el extranjero mediante asesoría, incubación e inversión. Con una profunda experiencia en las primeras líneas de las finanzas globales, aportamos no solo capital, sino también el conocimiento y la red para crecer.",
 "cred.label":"Trayectoria","cred.title":"Amplia experiencia, visión global.",
-"cred.s1":"Fundación","cred.s2":"Cartera y socios","cred.s3":"Años en finanzas globales","cred.s4":"Áreas de actividad",
+"cred.s1":"Fundación","cred.s2":"Empresas en cartera","cred.s3":"Carrera del fundador en finanzas","cred.s4":"Áreas de actividad",
 "cred.ft":"Reconocida como “Most Innovative Boutique” por The Banker (2012). La boutique financiera dirigida por el fundador Michimasa Naka fue reconocida internacionalmente por su innovación.",
 "svc.label":"Servicios","svc.title":"Tres formas de apoyarte.",
 "svc.1t":"Asesoría","svc.1d":"Apoyamos decisiones clave —estrategia de capital, financiación, M&A y expansión internacional— con profunda experiencia financiera.",
@@ -774,7 +773,7 @@ de:{
 "philo.label":"Philosophie","philo.quote":"Wir fördern das Wachstum<br><span class=\"accent\">ambitionierter Unternehmen und Menschen</span>.",
 "philo.body":"Seit unserer Gründung 2016 unterstützen wir Unternehmen und Gründer im In- und Ausland durch Beratung, Inkubation und Investition. Mit tiefer Erfahrung an vorderster Front der globalen Finanzwelt bieten wir nicht nur Kapital, sondern auch das Wissen und Netzwerk zum Wachsen.",
 "cred.label":"Erfolge","cred.title":"Tiefe Erfahrung, globale Perspektive.",
-"cred.s1":"Gegründet","cred.s2":"Portfolio & Partner","cred.s3":"Jahre globale Finanzen","cred.s4":"Geschäftsfelder",
+"cred.s1":"Gegründet","cred.s2":"Portfolio-Unternehmen","cred.s3":"Finanzkarriere des Gründers","cred.s4":"Geschäftsfelder",
 "cred.ft":"Von The Banker als „Most Innovative Boutique“ ausgezeichnet (2012). Die von Gründer Michimasa Naka geführte Finanzboutique wurde international für ihre Innovationskraft anerkannt.",
 "svc.label":"Leistungen","svc.title":"Drei Wege, Sie zu unterstützen.",
 "svc.1t":"Beratung","svc.1d":"Wir begleiten wichtige Entscheidungen – Kapitalstrategie, Finanzierung, M&A und internationale Expansion – mit fundierter Finanzexpertise.",
@@ -798,7 +797,7 @@ pt:{
 "philo.label":"Filosofia","philo.quote":"Apoiamos o crescimento de<br><span class=\"accent\">empresas e pessoas ambiciosas</span>.",
 "philo.body":"Desde a nossa fundação em 2016, apoiamos empresas e empreendedores no Japão e no exterior por meio de consultoria, incubação e investimento. Com profunda experiência na linha de frente das finanças globais, oferecemos não apenas capital, mas também o conhecimento e a rede para crescer.",
 "cred.label":"Histórico","cred.title":"Experiência sólida, visão global.",
-"cred.s1":"Fundação","cred.s2":"Portfólio e parceiros","cred.s3":"Anos em finanças globais","cred.s4":"Áreas de atuação",
+"cred.s1":"Fundação","cred.s2":"Empresas em portfólio","cred.s3":"Carreira do fundador em finanças","cred.s4":"Áreas de atuação",
 "cred.ft":"Eleita “Most Innovative Boutique” pela The Banker (2012). A boutique financeira liderada pelo fundador Michimasa Naka foi reconhecida internacionalmente por sua inovação.",
 "svc.label":"Serviços","svc.title":"Três formas de apoiar você.",
 "svc.1t":"Consultoria","svc.1d":"Apoiamos decisões importantes — estratégia de capital, captação, M&A e expansão internacional — com profunda expertise financeira.",

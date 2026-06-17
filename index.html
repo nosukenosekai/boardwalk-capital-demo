@@ -88,14 +88,14 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
 /* HERO */
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 58%;
-  transform:scale(1.16);animation:kenburns 16s ease-out forwards;will-change:transform}
-@keyframes kenburns{to{transform:scale(1)}}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 66%;
+  opacity:0;animation:kenburns 13s ease-out forwards, heroFade 1.6s ease forwards;will-change:transform,opacity}
+@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.18)}}
+@keyframes heroFade{to{opacity:1}}
 .hero-media::after{content:"";position:absolute;inset:0;
   background:
-    linear-gradient(180deg,rgba(12,26,86,.6) 0%,rgba(12,26,86,.26) 34%,rgba(11,22,72,.6) 72%,rgba(9,18,58,.98) 100%),
-    linear-gradient(110deg,rgba(20,44,140,.7) 0%,rgba(20,44,140,.2) 58%,transparent 100%),
-    linear-gradient(0deg,rgba(34,68,180,.2),rgba(34,68,180,.2));}
+    linear-gradient(180deg,rgba(10,22,72,.34) 0%,rgba(10,22,72,.1) 32%,rgba(9,18,60,.5) 70%,rgba(7,14,48,.97) 100%),
+    linear-gradient(105deg,rgba(16,34,110,.5) 0%,rgba(16,34,110,.12) 55%,transparent 100%);}
 .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:9vh}
 .hero-eyebrow{display:flex;align-items:center;gap:16px;font-family:"Manrope";font-size:.72rem;letter-spacing:.34em;
   color:#cfe0ff;text-transform:uppercase;margin-bottom:30px;
@@ -178,6 +178,10 @@ section{position:relative}
 .pcompanies .pc{background:#fff;padding:22px 26px;color:var(--navy);font-size:1rem;font-weight:500;transition:.3s var(--ease)}
 .pcompanies .pc:hover{background:var(--bg2);color:var(--blue)}
 .pcompanies .pc small{display:block;font-family:"Manrope";font-weight:400;font-size:.74rem;color:var(--muted);margin-top:4px;letter-spacing:.03em}
+.pcompanies a.pc{display:block;text-decoration:none;position:relative}
+.pcompanies a.pc .ext{position:absolute;top:16px;right:18px;color:var(--blue);opacity:0;transform:translateY(2px);transition:.3s var(--ease);font-size:.85rem}
+.pcompanies a.pc:hover .ext{opacity:1;transform:none}
+.marquee a.logo{text-decoration:none;cursor:pointer}
 
 /* TRACK RECORD */
 .creds{background:var(--bg2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
@@ -342,13 +346,7 @@ footer .sm{color:rgba(255,255,255,.5)}
 }
 </style>
 </head>
-<body class="lock">
-
-<div id="intro">
-  <div class="intro-mark"></div>
-  <div class="intro-word">BOARDWALK CAPITAL</div>
-  <div class="intro-line"></div>
-</div>
+<body>
 
 <header id="hdr">
   <div class="wrap nav">
@@ -874,11 +872,15 @@ applyLang(
   : detectLang()
 );
 
-/* partners marquee */
+/* partners marquee — クリックで各社サイトへ（公式URL・到達確認済み。要最終確認） */
 const PARTNERS=["glm","vectorinc","vision","istyle","geniee","apaman","finc","fabbit","donutrobotics"];
+const PURL={glm:"https://glm.jp/",vectorinc:"https://vectorinc.co.jp/",vision:"https://www.vision-net.co.jp/",istyle:"https://www.istyle.co.jp/",geniee:"https://geniee.co.jp/",finc:"https://finc.com/",fabbit:"https://fabbit.co.jp/",donutrobotics:"https://www.donutrobotics.com/"};
 const mq=document.getElementById("marquee");
-const buildLogos=()=>PARTNERS.map(p=>`<div class="logo"><img src="img/partner/${p}.png" alt="${p}"></div>`).join("");
+const buildLogos=()=>PARTNERS.map(p=>{const img=`<img src="img/partner/${p}.png" alt="${p}">`;
+  return PURL[p]?`<a class="logo" href="${PURL[p]}" target="_blank" rel="noopener">${img}</a>`:`<div class="logo">${img}</div>`;}).join("");
 mq.innerHTML=buildLogos()+buildLogos();
+/* 企業名→公式URL（グリッド用） */
+const CURL={"GLM":"https://glm.jp/","VECTOR":"https://vectorinc.co.jp/","Vision":"https://www.vision-net.co.jp/","istyle":"https://www.istyle.co.jp/","Geniee":"https://geniee.co.jp/","FiNC":"https://finc.com/","fabbit":"https://fabbit.co.jp/","donut robotics":"https://www.donutrobotics.com/"};
 
 /* 投資先・パートナー企業（partner.php より・全34社） */
 const PCO=[
@@ -894,22 +896,12 @@ const PCO=[
 ["キスリー株式会社","QiTHREE"],["株式会社JLBC","JLBC"],["WQC株式会社","WQC"]
 ];
 const pcEl=document.getElementById("pcompanies");
-if(pcEl)pcEl.innerHTML=PCO.map(c=>`<div class="pc">${c[0]}${c[1]?`<small>${c[1]}</small>`:""}</div>`).join("");
+if(pcEl)pcEl.innerHTML=PCO.map(c=>{const inner=`${c[0]}${c[1]?`<small>${c[1]}</small>`:""}`;const u=CURL[c[1]];
+  return u?`<a class="pc" href="${u}" target="_blank" rel="noopener">${inner}<span class="ext">↗</span></a>`:`<div class="pc">${inner}</div>`;}).join("");
 
-/* intro: split wordmark into letters for a one-by-one entrance */
-(function(){const iw=document.querySelector(".intro-word");if(!iw)return;
-  const t=iw.textContent;
-  iw.innerHTML=[...t].map((ch,i)=>{const d=(0.35+i*0.045).toFixed(2);
-    return ch===" "?`<span style="width:.45em;animation-delay:${d}s">&nbsp;</span>`:`<span style="animation-delay:${d}s">${ch}</span>`;}).join("");
-})();
-/* intro → reveal */
+/* オープニング：まず桟橋が映り（太陽へズームイン）→ 少し置いて文字が出る */
 const hero=document.querySelector(".hero");
-function startSite(){
-  document.getElementById("intro").classList.add("done");
-  document.body.classList.remove("lock");
-  requestAnimationFrame(()=>hero.classList.add("go"));
-}
-window.addEventListener("load",()=>setTimeout(startSite,2300));
+window.addEventListener("load",()=>setTimeout(()=>hero.classList.add("go"),1500));
 
 /* header solid on scroll */
 const hdr=document.getElementById("hdr");

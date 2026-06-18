@@ -968,12 +968,15 @@ document.addEventListener("click",()=>menu.classList.remove("open"));
 /* News（那珂通雅の経歴・沿革に基づく実データ。項目はここで追加・編集できます） */
 /* News — 創業者・那珂通雅の沿革（出典: Wikipedia「那珂通雅」） */
 const NEWS=[
- {date:"2020.05",img:"img/news/skyline.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ベクトルの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vector Inc."}},
+ {date:"2026.05",img:"img/news/city.jpg",cat:{ja:"トピックス",en:"Topics"},title:{ja:"創業者・那珂通雅が「外資系投資銀行出身の起業家15人」に選出されました。",en:"Founder Michimasa Naka was named among “15 entrepreneurs from global investment banks.”"}},
+ {date:"2026.04",img:"img/news/skyline.jpg",cat:{ja:"登壇",en:"Event"},title:{ja:"創業者・那珂通雅が「TEAMZ SUMMIT 2026」に登壇しました。",en:"Founder Michimasa Naka spoke at TEAMZ SUMMIT 2026."}},
+ {date:"2025.02",img:"img/news/dusk.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社LAUGH SHAREの顧問に就任しました。",en:"Founder Michimasa Naka was appointed Advisor to LAUGH SHARE Inc."}},
+ {date:"2022.10",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅がHRクラウド株式会社の社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of HR Cloud Inc."}},
+ {date:"2021.05",img:"img/news/skyline.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が寶結株式会社（旧HOUYOU）の社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Houyou Inc."}},
+ {date:"2020.05",img:"img/news/dusk.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ベクトルの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vector Inc."}},
  {date:"2019.03",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ビジョンの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vision Inc."}},
- {date:"2016.07",img:"img/news/dusk.jpg",cat:{ja:"会社情報",en:"Company"},title:{ja:"ボードウォーク・キャピタル株式会社を設立しました。",en:"Boardwalk Capital Inc. was founded."}},
+ {date:"2016.07",img:"img/news/skyline.jpg",cat:{ja:"会社情報",en:"Company"},title:{ja:"ボードウォーク・キャピタル株式会社を設立しました。",en:"Boardwalk Capital Inc. was founded."}},
  {date:"2012",img:"img/top/financialtimes.png",cat:{ja:"受賞",en:"Award"},title:{ja:"創業者・那珂通雅が英『The Banker』誌「最も革新的なブティック」を受賞しました。",en:"Founder Michimasa Naka was named ‘Most Innovative Boutique’ by The Banker."}},
- {date:"2010.12",img:"img/news/skyline.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅がストームハーバー証券を設立し、代表取締役社長に就任しました。",en:"Founder Michimasa Naka established Storm Harbor Securities and became President & CEO."}},
- {date:"2009.12",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅がシティグループ証券の取締役副社長に就任しました。",en:"Founder Michimasa Naka was appointed Vice Chairman of Citigroup Securities Japan."}},
 ];
 function renderNews(lang){
   const el=document.getElementById("newsList");if(!el)return;

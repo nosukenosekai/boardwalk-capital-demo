@@ -547,14 +547,18 @@ footer .sm{color:rgba(255,255,255,.5)}
 /* i18n — 訪問者の言語に自動で切替（入った瞬間に適用） */
 const LANGS=[
   {code:"ja",label:"日本語",native:"日本語",flag:"🇯🇵"},
-  {code:"en",label:"English",native:"English",flag:"🇺🇸"},
-  {code:"it",label:"Italiano",native:"Italiano",flag:"🇮🇹"},
-  {code:"zh",label:"中文",native:"简体中文",flag:"🇨🇳"},
-  {code:"fr",label:"Français",native:"Français",flag:"🇫🇷"},
-  {code:"ko",label:"한국어",native:"한국어",flag:"🇰🇷"},
-  {code:"es",label:"Español",native:"Español",flag:"🇪🇸"},
-  {code:"de",label:"Deutsch",native:"Deutsch",flag:"🇩🇪"},
-  {code:"pt",label:"Português",native:"Português",flag:"🇧🇷"},
+  {code:"en",label:"英語",native:"English",flag:"🇺🇸"},
+  {code:"zh",label:"中国語",native:"中文",flag:"🇨🇳"},
+  {code:"ko",label:"韓国語",native:"한국어",flag:"🇰🇷"},
+  {code:"it",label:"イタリア語",native:"Italiano",flag:"🇮🇹"},
+  {code:"fr",label:"フランス語",native:"Français",flag:"🇫🇷"},
+  {code:"es",label:"スペイン語",native:"Español",flag:"🇪🇸"},
+  {code:"de",label:"ドイツ語",native:"Deutsch",flag:"🇩🇪"},
+  {code:"pt",label:"ポルトガル語",native:"Português",flag:"🇧🇷"},
+  {code:"nl",label:"オランダ語",native:"Nederlands",flag:"🇳🇱"},
+  {code:"ru",label:"ロシア語",native:"Русский",flag:"🇷🇺"},
+  {code:"ar",label:"アラビア語",native:"العربية",flag:"🇸🇦"},
+  {code:"hi",label:"ヒンディー語",native:"हिन्दी",flag:"🇮🇳"},
 ];
 const I18N={
 ja:{
@@ -806,13 +810,89 @@ pt:{
 "ct.l1":"Nome","ct.l2":"E-mail","ct.l3":"Empresa","ct.l4":"Mensagem",
 "ct.f1":"Seu nome","ct.f2":"voce@exemplo.com","ct.f3":"Nome da empresa","ct.f4":"Como podemos ajudar?",
 "ct.send":"Enviar <span class=\"ar\">→</span>","ct.sent":"Mensagem enviada. Obrigado.","foot.r":"Todos os direitos reservados."
+},
+nl:{
+"nav.about":"Filosofie","nav.track":"Track Record","nav.services":"Diensten","nav.team":"Team","nav.news":"Nieuws","nav.contact":"Contact",
+"hero.eyebrow":"Advisory · Incubation · Angel Investment",
+"hero.t1":"Kapitaal en expertise","hero.t2":"voor ambitieuze bedrijven.",
+"hero.lead":"Boardwalk Capital is een investeringsmaatschappij die ambitieuze bedrijven en ondernemers ondersteunt met advies, incubatie en investeringen.",
+"hero.cta1":"Neem contact op <span class=\"ar\">→</span>","hero.cta2":"Onze diensten",
+"philo.label":"Filosofie","philo.quote":"Wij ondersteunen de groei van<br><span class=\"accent\">ambitieuze bedrijven en mensen</span>.",
+"philo.body":"Sinds onze oprichting in 2016 staan wij naast bedrijven en ondernemers in Japan en daarbuiten, via advies, incubatie en investeringen. Met diepgaande ervaring in de mondiale financiële wereld bieden wij niet alleen kapitaal, maar ook de kennis en het netwerk om te groeien. Wij werken samen met bedrijven en ondernemers in heel Azië en daarbuiten, op mondiale schaal.",
+"cred.label":"Track Record","cred.title":"Diepe ervaring, mondiale visie.","cred.s1":"Opgericht","cred.s2":"Portfoliobedrijven","cred.s3":"Financiële carrière van de oprichter","cred.s4":"Werkgebieden",
+"cred.ft":"Uitgeroepen tot “Most Innovative Boutique” door The Banker (2012). De financiële boutique onder leiding van oprichter Michimasa Naka werd internationaal erkend om haar innovatie.",
+"svc.label":"Diensten","svc.title":"Drie manieren waarop wij u steunen.","svc.1t":"Advies","svc.1d":"Wij begeleiden belangrijke beslissingen — kapitaalstrategie, financiering, M&A en internationale expansie — met diepgaande financiële expertise.","svc.2t":"Incubatie","svc.2d":"Wij begeleiden nieuwe ondernemingen van begin tot eind: strategie, teamopbouw en netwerkontwikkeling.","svc.3t":"Angel-investeringen","svc.3d":"Wij investeren in veelbelovende bedrijven en ondernemers en ondersteunen hun groei op de lange termijn.",
+"team.label":"Team","team.title":"Ons team.",
+"ptn.label":"Portfolio","ptn.title":"Onze belangrijkste investeringen.","ptn.sub":"Sinds onze oprichting groeien wij samen met groeibedrijven in uiteenlopende sectoren.",
+"news.label":"Nieuws","news.title":"Nieuws","news.more":"Alles bekijken",
+"ct.label":"Contact","ct.title":"Neem gerust contact op.","ct.desc":"Wij verwelkomen vragen over financiering, internationale expansie, nieuwe ondernemingen en andere managementkwesties. Neem gerust contact met ons op.",
+"ct.k1":"Bedrijf","ct.k2":"Engelse naam","ct.k3":"Opgericht","ct.v3":"Juli 2016","ct.k4":"Activiteiten","ct.v4":"Advies / Incubatie / Angel-investeringen","ct.l1":"Naam","ct.l2":"E-mail","ct.l3":"Bedrijf","ct.l4":"Bericht","ct.f1":"Uw naam","ct.f2":"u@voorbeeld.com","ct.f3":"Bedrijfsnaam","ct.f4":"Hoe kunnen we helpen?",
+"ct.send":"Versturen <span class=\"ar\">→</span>","ct.sent":"Bericht verzonden. Bedankt.","foot.r":"Alle rechten voorbehouden.",
+"msg.title":"Meer Japanners voortbrengen<br><span class=\"accent\">die wereldwijd kunnen meekomen.</span>","msg.lead":"Dit is een overtuiging die ik al vele jaren koester — en het startpunt van Boardwalk Capital.","msg.p1":"Ruim 25 jaar werkte ik in de internationale financiële wereld en ervoer de schaal van de mondiale markten en de snelheid van verandering. In die jaren groeiden de Japanse bedrijven, technologie en talenten — ooit de sterkste ter wereld — nauwelijks. Ook macro-economisch naderen het beleid van de overheid en de Bank of Japan hun grenzen.","msg.p2":"Toch groeien de bedrijven, diensten en mensen met wie wij werken in opmerkelijk tempo — velen met een omzet-, winst- en personeelsgroei van 50–100% of meer per jaar.","msg.p3":"Om nog meer van zulke uitdagers voort te brengen, zetten wij ons volledig in via onze drie activiteiten: advies, incubatie en angel-investeringen.","msg.role":"Algemeen directeur"
+},
+ru:{
+"nav.about":"Философия","nav.track":"Достижения","nav.services":"Услуги","nav.team":"Команда","nav.news":"Новости","nav.contact":"Контакты",
+"hero.eyebrow":"Advisory · Incubation · Angel Investment",
+"hero.t1":"Капитал и опыт","hero.t2":"для амбициозных компаний.",
+"hero.lead":"Boardwalk Capital — инвестиционная компания, которая поддерживает амбициозные компании и предпринимателей через консалтинг, инкубацию и инвестиции.",
+"hero.cta1":"Связаться <span class=\"ar\">→</span>","hero.cta2":"Наши услуги",
+"philo.label":"Философия","philo.quote":"Мы поддерживаем рост<br><span class=\"accent\">амбициозных компаний и людей</span>.",
+"philo.body":"С момента основания в 2016 году мы поддерживаем компании и предпринимателей в Японии и за рубежом — через консалтинг, инкубацию и инвестиции. Опираясь на глубокий опыт на переднем крае мировых финансов, мы предлагаем не только капитал, но и знания и связи для роста. Мы работаем с компаниями и предпринимателями по всей Азии и за её пределами, в глобальном масштабе.",
+"cred.label":"Достижения","cred.title":"Глубокий опыт, глобальный взгляд.","cred.s1":"Основана","cred.s2":"Портфельные компании","cred.s3":"Финансовая карьера основателя","cred.s4":"Направления",
+"cred.ft":"Признана «Самым инновационным бутиком» по версии The Banker (2012). Финансовый бутик под руководством основателя Митимасы Наки получил международное признание за инновации.",
+"svc.label":"Услуги","svc.title":"Три способа поддержать вас.","svc.1t":"Консалтинг","svc.1d":"Мы сопровождаем ключевые решения — стратегию капитала, привлечение средств, M&A и международную экспансию — с глубокой финансовой экспертизой.","svc.2t":"Инкубация","svc.2d":"Мы сопровождаем новые проекты от начала до конца: стратегия, формирование команды и развитие сети.","svc.3t":"Ангельские инвестиции","svc.3d":"Мы инвестируем в перспективные компании и предпринимателей, поддерживая их рост в долгосрочной перспективе.",
+"team.label":"Команда","team.title":"Наша команда.",
+"ptn.label":"Портфель","ptn.title":"Наши основные инвестиции.","ptn.sub":"С момента основания мы растём вместе с быстрорастущими компаниями из разных отраслей.",
+"news.label":"Новости","news.title":"Новости","news.more":"Все новости",
+"ct.label":"Контакты","ct.title":"Свяжитесь с нами.","ct.desc":"Мы открыты для вопросов о привлечении средств, международной экспансии, новых проектах и других вопросах управления. Напишите нам.",
+"ct.k1":"Компания","ct.k2":"Английское название","ct.k3":"Основана","ct.v3":"Июль 2016","ct.k4":"Деятельность","ct.v4":"Консалтинг / Инкубация / Ангельские инвестиции","ct.l1":"Имя","ct.l2":"Эл. почта","ct.l3":"Компания","ct.l4":"Сообщение","ct.f1":"Ваше имя","ct.f2":"you@example.com","ct.f3":"Название компании","ct.f4":"Чем мы можем помочь?",
+"ct.send":"Отправить <span class=\"ar\">→</span>","ct.sent":"Сообщение отправлено. Спасибо.","foot.r":"Все права защищены.",
+"msg.title":"Воспитать как можно больше японцев,<br><span class=\"accent\">способных конкурировать в мире.</span>","msg.lead":"Это убеждение я храню много лет — и именно оно стало отправной точкой Boardwalk Capital.","msg.p1":"Более 25 лет я работал в международных финансах, ощущая масштаб мировых рынков и скорость перемен. За эти годы японские компании, технологии и таланты — некогда сильнейшие в мире — почти не выросли. С макроэкономической точки зрения политика государства и Банка Японии уже близка к пределу.","msg.p2":"При этом компании, услуги и люди, с которыми мы работаем, растут поразительными темпами — у многих выручка, прибыль и численность сотрудников увеличиваются на 50–100% и более в год.","msg.p3":"Чтобы создавать ещё больше таких новаторов, мы полностью посвящаем себя трём направлениям: консалтинг, инкубация и ангельские инвестиции.","msg.role":"Генеральный директор"
+},
+ar:{
+"nav.about":"الرؤية","nav.track":"الإنجازات","nav.services":"الخدمات","nav.team":"الفريق","nav.news":"الأخبار","nav.contact":"اتصل بنا",
+"hero.eyebrow":"Advisory · Incubation · Angel Investment",
+"hero.t1":"رأس المال والخبرة","hero.t2":"للشركات الطموحة.",
+"hero.lead":"بوردووك كابيتال شركة استثمار تدعم الشركات ورواد الأعمال الطموحين من خلال الاستشارات والاحتضان والاستثمار.",
+"hero.cta1":"تواصل معنا <span class=\"ar\">→</span>","hero.cta2":"خدماتنا",
+"philo.label":"الرؤية","philo.quote":"ندعم نمو<br><span class=\"accent\">الشركات والأفراد الطموحين</span>.",
+"philo.body":"منذ تأسيسنا عام 2016، نقف إلى جانب الشركات ورواد الأعمال في اليابان وخارجها من خلال الاستشارات والاحتضان والاستثمار. وبفضل خبرتنا العميقة في طليعة التمويل العالمي، لا نقدّم رأس المال فحسب، بل أيضًا المعرفة والشبكة اللازمة للنمو. نعمل مع شركات ورواد أعمال في جميع أنحاء آسيا وخارجها على نطاق عالمي.",
+"cred.label":"الإنجازات","cred.title":"خبرة عميقة ورؤية عالمية.","cred.s1":"تأسست","cred.s2":"شركات المحفظة","cred.s3":"المسيرة المالية للمؤسس","cred.s4":"مجالات العمل",
+"cred.ft":"حازت لقب «أكثر مؤسسة ابتكارًا» من مجلة The Banker (2012). نالت المؤسسة المالية بقيادة المؤسس ميتشيماسا ناكا اعترافًا دوليًا بابتكارها.",
+"svc.label":"الخدمات","svc.title":"ثلاث طرق لدعمكم.","svc.1t":"الاستشارات","svc.1d":"نرافق القرارات الرئيسية — استراتيجية رأس المال، وجمع التمويل، والاندماج والاستحواذ، والتوسع الدولي — بخبرة مالية عميقة.","svc.2t":"الاحتضان","svc.2d":"نرافق المشاريع الجديدة من البداية إلى النهاية: الاستراتيجية وبناء الفريق وتطوير الشبكة.","svc.3t":"الاستثمار الملائكي","svc.3d":"نستثمر في الشركات ورواد الأعمال الواعدين وندعم نموهم برؤية طويلة المدى.",
+"team.label":"الفريق","team.title":"فريقنا.",
+"ptn.label":"المحفظة","ptn.title":"أبرز استثماراتنا.","ptn.sub":"منذ تأسيسنا، ننمو مع الشركات سريعة النمو في قطاعات متنوعة.",
+"news.label":"الأخبار","news.title":"الأخبار","news.more":"عرض الكل",
+"ct.label":"اتصل بنا","ct.title":"لا تتردد في التواصل.","ct.desc":"نرحّب بالاستفسارات حول جمع التمويل والتوسع الدولي والمشاريع الجديدة وسائر شؤون الإدارة. تواصلوا معنا بكل أريحية.",
+"ct.k1":"الشركة","ct.k2":"الاسم بالإنجليزية","ct.k3":"تأسست","ct.v3":"يوليو 2016","ct.k4":"النشاط","ct.v4":"استشارات / احتضان / استثمار ملائكي","ct.l1":"الاسم","ct.l2":"البريد الإلكتروني","ct.l3":"الشركة","ct.l4":"الرسالة","ct.f1":"اسمك","ct.f2":"you@example.com","ct.f3":"اسم الشركة","ct.f4":"كيف يمكننا المساعدة؟",
+"ct.send":"إرسال <span class=\"ar\">→</span>","ct.sent":"تم إرسال الرسالة. شكرًا لك.","foot.r":"جميع الحقوق محفوظة.",
+"msg.title":"أن نصنع أكبر عدد من اليابانيين<br><span class=\"accent\">القادرين على المنافسة عالميًا.</span>","msg.lead":"هذه قناعة أحملها منذ سنوات طويلة، وهي نقطة انطلاق بوردووك كابيتال.","msg.p1":"على مدى أكثر من 25 عامًا عملت في التمويل الدولي، وأدركت عن قرب حجم الأسواق العالمية وسرعة التغيّر. خلال تلك السنوات، بالكاد نمت الشركات والتقنيات والكفاءات اليابانية التي كانت يومًا الأقوى في العالم. ومن منظور كلي، تقترب سياسات الحكومة وبنك اليابان من حدودها.","msg.p2":"ومع ذلك، تنمو الشركات والخدمات والكفاءات التي نعمل معها بوتيرة لافتة، وكثير منها يزيد إيراداته وأرباحه وعدد موظفيه بنسبة 50–100% أو أكثر سنويًا.","msg.p3":"ولصناعة المزيد من هؤلاء المبدعين، نكرّس أنفسنا بالكامل عبر أنشطتنا الثلاثة: الاستشارات والاحتضان والاستثمار الملائكي.","msg.role":"الرئيس التنفيذي"
+},
+hi:{
+"nav.about":"दर्शन","nav.track":"उपलब्धियाँ","nav.services":"सेवाएँ","nav.team":"टीम","nav.news":"समाचार","nav.contact":"संपर्क",
+"hero.eyebrow":"Advisory · Incubation · Angel Investment",
+"hero.t1":"महत्वाकांक्षी कंपनियों के लिए","hero.t2":"पूंजी और अनुभव।",
+"hero.lead":"बोर्डवॉक कैपिटल एक निवेश कंपनी है जो सलाह, इन्क्यूबेशन और निवेश के माध्यम से महत्वाकांक्षी कंपनियों और उद्यमियों का समर्थन करती है।",
+"hero.cta1":"संपर्क करें <span class=\"ar\">→</span>","hero.cta2":"हमारी सेवाएँ",
+"philo.label":"दर्शन","philo.quote":"हम वृद्धि का समर्थन करते हैं<br><span class=\"accent\">महत्वाकांक्षी कंपनियों और लोगों की</span>।",
+"philo.body":"2016 में अपनी स्थापना के बाद से, हम सलाह, इन्क्यूबेशन और निवेश के माध्यम से जापान और विदेशों में कंपनियों और उद्यमियों के साथ खड़े रहे हैं। वैश्विक वित्त के अग्रिम मोर्चे पर गहरे अनुभव के साथ, हम केवल पूंजी ही नहीं, बल्कि बढ़ने के लिए ज्ञान और नेटवर्क भी प्रदान करते हैं। हम पूरे एशिया और उससे आगे की कंपनियों और उद्यमियों के साथ वैश्विक स्तर पर काम करते हैं।",
+"cred.label":"उपलब्धियाँ","cred.title":"गहरा अनुभव, वैश्विक दृष्टि।","cred.s1":"स्थापना","cred.s2":"पोर्टफोलियो कंपनियाँ","cred.s3":"संस्थापक का वित्तीय करियर","cred.s4":"कार्यक्षेत्र",
+"cred.ft":"The Banker द्वारा “सबसे नवोन्मेषी बुटीक” का खिताब (2012)। संस्थापक मिचिमासा नाका के नेतृत्व वाली वित्तीय बुटीक को उसके नवाचार के लिए अंतरराष्ट्रीय मान्यता मिली।",
+"svc.label":"सेवाएँ","svc.title":"आपका साथ देने के तीन तरीके।","svc.1t":"सलाह","svc.1d":"हम प्रमुख निर्णयों — पूंजी रणनीति, फंडिंग, M&A और अंतरराष्ट्रीय विस्तार — में गहरी वित्तीय विशेषज्ञता के साथ साथ देते हैं।","svc.2t":"इन्क्यूबेशन","svc.2d":"हम नए उद्यमों को आरंभ से अंत तक सहयोग देते हैं: रणनीति, टीम निर्माण और नेटवर्क विकास।","svc.3t":"एंजेल निवेश","svc.3d":"हम आशाजनक कंपनियों और उद्यमियों में निवेश करते हैं और दीर्घकालिक दृष्टि से उनकी वृद्धि का समर्थन करते हैं।",
+"team.label":"टीम","team.title":"हमारी टीम।",
+"ptn.label":"पोर्टफोलियो","ptn.title":"हमारे प्रमुख निवेश।","ptn.sub":"स्थापना के बाद से, हम विभिन्न उद्योगों की तेज़ी से बढ़ती कंपनियों के साथ आगे बढ़े हैं।",
+"news.label":"समाचार","news.title":"समाचार","news.more":"सभी देखें",
+"ct.label":"संपर्क","ct.title":"बेझिझक संपर्क करें।","ct.desc":"हम फंडिंग, अंतरराष्ट्रीय विस्तार, नए उद्यम और अन्य प्रबंधन संबंधी प्रश्नों का स्वागत करते हैं। बेझिझक हमें लिखें।",
+"ct.k1":"कंपनी","ct.k2":"अंग्रेज़ी नाम","ct.k3":"स्थापना","ct.v3":"जुलाई 2016","ct.k4":"गतिविधि","ct.v4":"सलाह / इन्क्यूबेशन / एंजेल निवेश","ct.l1":"नाम","ct.l2":"ईमेल","ct.l3":"कंपनी","ct.l4":"संदेश","ct.f1":"आपका नाम","ct.f2":"you@example.com","ct.f3":"कंपनी का नाम","ct.f4":"हम कैसे मदद करें?",
+"ct.send":"भेजें <span class=\"ar\">→</span>","ct.sent":"संदेश भेजा गया। धन्यवाद।","foot.r":"सर्वाधिकार सुरक्षित।",
+"msg.title":"अधिक से अधिक ऐसे जापानी तैयार करना<br><span class=\"accent\">जो विश्व मंच पर प्रतिस्पर्धा कर सकें।</span>","msg.lead":"यह विश्वास मैं वर्षों से रखता आया हूँ — और यही बोर्डवॉक कैपिटल का प्रारंभ-बिंदु है।","msg.p1":"25 वर्षों से अधिक समय तक मैंने अंतरराष्ट्रीय वित्त में काम किया और वैश्विक बाज़ारों के विस्तार तथा बदलाव की गति को निकट से महसूस किया। उन वर्षों में, कभी विश्व की सबसे मजबूत मानी जाने वाली जापानी कंपनियाँ, तकनीक और प्रतिभाएँ शायद ही बढ़ पाईं। समष्टि दृष्टि से भी, सरकार और बैंक ऑफ जापान की नीतियाँ अपनी सीमा के निकट हैं।","msg.p2":"फिर भी, जिन कंपनियों, सेवाओं और लोगों के साथ हम काम करते हैं, वे उल्लेखनीय गति से बढ़ रहे हैं — कई की आय, लाभ और कर्मचारी संख्या हर साल 50–100% या अधिक बढ़ रही है।","msg.p3":"ऐसे और प्रवर्तकों को तैयार करने के लिए, हम अपने तीन कार्यक्षेत्रों — सलाह, इन्क्यूबेशन और एंजेल निवेश — के माध्यम से पूरी तरह समर्पित हैं।","msg.role":"प्रबंध निदेशक"
 }
 };
 let CUR="ja";
 const SUPPORTED=LANGS.map(l=>l.code);
 function applyLang(code){
   if(!I18N[code])code="en";
-  CUR=code;document.documentElement.lang=code;
+  CUR=code;document.documentElement.lang=code;document.documentElement.dir=(code==="ar"?"rtl":"ltr");
   const d=I18N[code],en=I18N.en;
   const T=k=>d[k]!=null?d[k]:en[k];   /* 未翻訳キーは英語にフォールバック */
   document.querySelectorAll("[data-i18n]").forEach(el=>{

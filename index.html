@@ -99,19 +99,19 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
 .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:9vh}
 .hero-eyebrow{display:flex;align-items:center;gap:16px;font-family:"Manrope";font-size:.72rem;letter-spacing:.34em;
   color:#cfe0ff;text-transform:uppercase;margin-bottom:30px;
-  opacity:0;transform:translateY(16px);transition:1s var(--ease) .15s}
+  opacity:0;transform:translateY(16px);transition:.7s var(--ease) .05s}
 .hero.go .hero-eyebrow{opacity:1;transform:none}
 .hero-eyebrow::before{content:"";width:46px;height:1px;background:#cfe0ff}
 .hero h1{font-weight:700;font-size:clamp(2.4rem,5.6vw,5rem);line-height:1.24;letter-spacing:.02em;margin-bottom:30px;color:#fff}
 .hero h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
-.hero h1 .l span{display:inline-block;transform:translateY(115%);opacity:0;transition:transform 1.15s var(--ease),opacity 1.15s var(--ease)}
+.hero h1 .l span{display:inline-block;transform:translateY(115%);opacity:0;transition:transform .75s var(--ease),opacity .75s var(--ease)}
 .hero.go h1 .l span{transform:none;opacity:1}
-.hero h1 .l:nth-child(1) span{transition-delay:.35s}
-.hero h1 .l:nth-child(2) span{transition-delay:.5s}
+.hero h1 .l:nth-child(1) span{transition-delay:.12s}
+.hero h1 .l:nth-child(2) span{transition-delay:.22s}
 .hero p.lead{max-width:46ch;color:#e3ecfb;font-size:clamp(1.05rem,1.4vw,1.25rem);font-weight:500;line-height:1.9;
-  opacity:0;transform:translateY(20px);transition:1s var(--ease) .75s}
+  opacity:0;transform:translateY(20px);transition:.7s var(--ease) .34s}
 .hero.go p.lead{opacity:1;transform:none}
-.hero-cta{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:1s var(--ease) .9s}
+.hero-cta{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:.7s var(--ease) .44s}
 .hero.go .hero-cta{opacity:1;transform:none}
 .btn{display:inline-flex;align-items:center;gap:12px;font-family:"Manrope";font-size:.8rem;letter-spacing:.1em;
   padding:16px 32px;border-radius:2px;cursor:pointer;transition:.4s var(--ease);text-transform:uppercase;border:1px solid transparent}
@@ -152,7 +152,7 @@ section{position:relative}
 .philo{background:linear-gradient(180deg,var(--bg),var(--bg2))}
 .philo .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:center}
 .philo .frame{position:relative;overflow:hidden;border:1px solid var(--line)}
-.philo .frame img{width:100%;height:560px;object-fit:cover;object-position:center 58%;transition:transform 1.4s var(--ease)}
+.philo .frame img{width:100%;height:560px;object-fit:cover;object-position:center 38%;transition:transform 1.4s var(--ease)}
 .philo .frame:hover img{transform:scale(1.05)}
 .philo .frame .cap{position:absolute;left:0;bottom:0;padding:16px 20px;font-family:"Manrope";font-size:.62rem;
   letter-spacing:.26em;color:#fff;text-transform:uppercase;background:linear-gradient(transparent,rgba(4,8,20,.7))}
@@ -921,11 +921,14 @@ langBtn.onclick=e=>{e.stopPropagation();menu.classList.toggle("open");};
 document.addEventListener("click",()=>menu.classList.remove("open"));
 
 /* News（那珂通雅の経歴・沿革に基づく実データ。項目はここで追加・編集できます） */
+/* News — 創業者・那珂通雅の沿革（出典: Wikipedia「那珂通雅」） */
 const NEWS=[
- {date:"2026.06",img:"img/news/skyline.jpg",cat:{ja:"お知らせ",en:"Notice"},title:{ja:"コーポレートサイトをリニューアルいたしました。",en:"We have renewed our corporate website."}},
- {date:"2026.04",img:"img/news/city.jpg",cat:{ja:"投資",en:"Investment"},title:{ja:"新規投資先への出資を実行いたしました。",en:"We completed a new portfolio investment."}},
- {date:"2025.10",img:"img/news/dusk.jpg",cat:{ja:"イベント",en:"Event"},title:{ja:"代表・那珂通雅がスタートアップ向けイベントに登壇しました。",en:"CEO Michimasa Naka spoke at a startup event."}},
+ {date:"2020.05",img:"img/news/skyline.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ベクトルの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vector Inc."}},
+ {date:"2019.03",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ビジョンの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vision Inc."}},
+ {date:"2016.07",img:"img/news/dusk.jpg",cat:{ja:"会社情報",en:"Company"},title:{ja:"ボードウォーク・キャピタル株式会社を設立しました。",en:"Boardwalk Capital Inc. was founded."}},
  {date:"2012",img:"img/top/financialtimes.png",cat:{ja:"受賞",en:"Award"},title:{ja:"創業者・那珂通雅が英『The Banker』誌「最も革新的なブティック」を受賞しました。",en:"Founder Michimasa Naka was named ‘Most Innovative Boutique’ by The Banker."}},
+ {date:"2010.12",img:"img/news/skyline.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅がストームハーバー証券を設立し、代表取締役社長に就任しました。",en:"Founder Michimasa Naka established Storm Harbor Securities and became President & CEO."}},
+ {date:"2009.12",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅がシティグループ証券の取締役副社長に就任しました。",en:"Founder Michimasa Naka was appointed Vice Chairman of Citigroup Securities Japan."}},
 ];
 function renderNews(lang){
   const el=document.getElementById("newsList");if(!el)return;
@@ -976,7 +979,7 @@ if(pcEl)pcEl.innerHTML=PCO.map(c=>{const inner=`${c[0]}${c[1]?`<small>${c[1]}</s
 
 /* オープニング：まず桟橋が映り（太陽へズームイン）→ 少し置いて文字が出る */
 const hero=document.querySelector(".hero");
-window.addEventListener("load",()=>setTimeout(()=>hero.classList.add("go"),1500));
+window.addEventListener("load",()=>setTimeout(()=>hero.classList.add("go"),550));
 
 /* header solid on scroll */
 const hdr=document.getElementById("hdr");

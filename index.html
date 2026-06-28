@@ -1078,38 +1078,7 @@ addEventListener("scroll",parallax,{passive:true});parallax();
 /* ヒーローは常時ゆっくり動くケンバーンズ（CSS無限往復）に一本化。
    旧・スクロール視差JSはinline transformでケンバーンズを上書きし静止させてしまうため撤去。 */
 
-/* === スムーズ慣性スクロール（デスクトップのみ・nativeのscrollYを正に保つwheel-lerp方式） ===
-   ホイール量を慣性で追従させ、scrollingElement.scrollTopを直接更新。
-   既存のパララックス／リビール／ヘッダー切替はそのまま動く（scrollYが正確なため）。 */
-(function(){
-  const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
-  const fine=matchMedia("(hover:hover) and (pointer:fine)").matches; /* タッチ端末は除外（標準の慣性が既に滑らか） */
-  if(rm||!fine)return;
-  const se=document.scrollingElement||document.documentElement;
-  let target=se.scrollTop,current=target,running=false;
-  const EASE=0.20;
-  const maxY=()=>se.scrollHeight-innerHeight;
-  function frame(){
-    current+=(target-current)*EASE;
-    if(Math.abs(target-current)<0.5){current=target;running=false;}
-    se.scrollTop=current;                 /* scrollTop直接代入はscroll-behaviorを無視＝毎フレーム即時 */
-    if(running)requestAnimationFrame(frame);
-  }
-  addEventListener("wheel",function(e){
-    if(e.ctrlKey)return;                   /* ピンチズームは触らない */
-    for(let n=e.target;n&&n!==document.body;n=n.parentElement){ /* 内部スクロール要素（textarea等）は委ねる */
-      const s=getComputedStyle(n);
-      if(/(auto|scroll)/.test(s.overflowY)&&n.scrollHeight>n.clientHeight+1)return;
-    }
-    e.preventDefault();
-    const unit=e.deltaMode===1?16:(e.deltaMode===2?innerHeight:1);
-    target=Math.max(0,Math.min(maxY(),target+e.deltaY*unit));
-    if(!running){running=true;requestAnimationFrame(frame);}
-  },{passive:false});
-  /* スクロールバー操作・アンカー・キーボード等（=慣性ループ外）の移動に追従 */
-  addEventListener("scroll",function(){if(!running&&Math.abs(se.scrollTop-current)>2){target=current=se.scrollTop;}},{passive:true});
-  addEventListener("resize",function(){target=current=se.scrollTop;});
-})();
+/* スムーズ慣性スクロールは撤去（入力にラグが出て操作感が重いため）。スクロールは標準の即時挙動。 */
 
 /* === スクロール進捗ライン（上端・ロイヤルブルー2px・控えめな高級感の補助） === */
 (function(){

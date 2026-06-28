@@ -89,8 +89,8 @@ header.solid .lang-btn:hover{border-color:var(--blue)}
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end}
 .hero-media{position:absolute;inset:0;z-index:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 52%;
-  opacity:0;animation:kenburns 13s ease-out forwards, heroFade 1.6s ease forwards;will-change:transform,opacity}
-@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.18)}}
+  opacity:0;animation:kenburns 18s ease-in-out infinite alternate, heroFade 1.6s ease forwards;will-change:transform,opacity}
+@keyframes kenburns{from{transform:scale(1.06) translate3d(0,0,0)}to{transform:scale(1.15) translate3d(-2.2%,-1.6%,0)}}
 @keyframes heroFade{to{opacity:1}}
 .hero-media::after{content:"";position:absolute;inset:0;
   background:
@@ -137,7 +137,7 @@ section{position:relative}
 .sub{color:var(--muted);max-width:54ch;margin-top:24px;font-size:1.12rem;line-height:1.85}
 
 /* reveal (re-triggers every time it enters view) */
-.r{opacity:0;transform:translateY(42px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .r.in{opacity:1;transform:none}
 .r-img{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s var(--ease)}
 .r-img.in{clip-path:inset(0 0 0 0)}
@@ -1040,7 +1040,7 @@ if(pcEl)pcEl.innerHTML=PCO.map(c=>{const inner=`${c[0]}${c[1]?`<small>${c[1]}</s
 
 /* オープニング：まず桟橋が映り（太陽へズームイン）→ 少し置いて文字が出る */
 const hero=document.querySelector(".hero");
-window.addEventListener("load",()=>setTimeout(()=>hero.classList.add("go"),550));
+window.addEventListener("load",()=>setTimeout(()=>hero.classList.add("go"),250));
 
 /* header solid on scroll */
 const hdr=document.getElementById("hdr");
@@ -1075,9 +1075,8 @@ function parallax(){const vh=innerHeight;plx.forEach(el=>{
 });}
 addEventListener("scroll",parallax,{passive:true});parallax();
 
-/* light parallax on hero image */
-const heroImg=document.querySelector(".hero-media img");
-addEventListener("scroll",()=>{const y=scrollY;if(y<innerHeight)heroImg.style.transform=`scale(1.05) translateY(${y*0.16}px)`;},{passive:true});
+/* ヒーローは常時ゆっくり動くケンバーンズ（CSS無限往復）に一本化。
+   旧・スクロール視差JSはinline transformでケンバーンズを上書きし静止させてしまうため撤去。 */
 
 /* === スムーズ慣性スクロール（デスクトップのみ・nativeのscrollYを正に保つwheel-lerp方式） ===
    ホイール量を慣性で追従させ、scrollingElement.scrollTopを直接更新。
@@ -1088,7 +1087,7 @@ addEventListener("scroll",()=>{const y=scrollY;if(y<innerHeight)heroImg.style.tr
   if(rm||!fine)return;
   const se=document.scrollingElement||document.documentElement;
   let target=se.scrollTop,current=target,running=false;
-  const EASE=0.10;
+  const EASE=0.20;
   const maxY=()=>se.scrollHeight-innerHeight;
   function frame(){
     current+=(target-current)*EASE;

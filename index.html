@@ -370,9 +370,33 @@ html[lang="th"] body,html[lang="th"] .jp{font-family:"Noto Sans Thai","Noto Sans
 .svc-row .mid h3{transition:transform .45s var(--ease),color .3s}
 .svc-row:hover .mid h3{color:var(--blue-bright)}
 
+/* モバイルメニュー（ハンバーガー） */
+.menu-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0;margin-left:8px;background:transparent;border:0;cursor:pointer;position:relative;z-index:130}
+.menu-btn span{display:block;width:24px;height:2px;margin:0 auto;background:#fff;transition:.32s var(--ease)}
+header.solid .menu-btn span{background:var(--navy)}
+.mobile-menu{position:fixed;inset:0;z-index:118;background:rgba(255,255,255,.985);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:opacity .4s var(--ease),transform .55s var(--ease),visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu nav{display:flex;flex-direction:column;gap:2px;text-align:center}
+.mobile-menu a{font-family:"Manrope";font-weight:600;letter-spacing:.16em;font-size:1.45rem;color:var(--navy);text-transform:uppercase;padding:16px 28px;transition:color .3s var(--ease)}
+.mobile-menu a:active,.mobile-menu a:hover{color:var(--blue)}
+body.menu-open{overflow:hidden}
+/* 展開中はヘッダー文字を濃色に（白オーバーレイで白文字が消えないように） */
+body.menu-open .brand b,body.menu-open #langLabel{color:var(--navy)}
+body.menu-open .brand .bm{border-color:var(--navy)}
+body.menu-open .lang-btn{color:var(--navy);border-color:var(--line)}
+body.menu-open .menu-btn span{background:var(--navy)}
+body.menu-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-open .menu-btn span:nth-child(2){opacity:0}
+body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:920px){.menu-btn{display:flex}}
+@media(min-width:921px){.mobile-menu{display:none!important}}
+
 @media(max-width:920px){
   .cine{min-height:64vh;background-attachment:scroll}
   .svc-row .idx{font-size:1.6rem}
+  .cine .mark{letter-spacing:.06em}
 }
 
 @media(max-width:920px){
@@ -454,8 +478,21 @@ html[lang="th"] body,html[lang="th"] .jp{font-family:"Noto Sans Thai","Noto Sans
       </button>
       <div class="lang-menu" id="langMenu" role="menu"></div>
     </div>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<!-- モバイルメニュー -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="#top">TOP</a>
+    <a href="#philosophy">ABOUT</a>
+    <a href="#message">CEO MESSAGE</a>
+    <a href="#partners">PARTNERS</a>
+    <a href="#news">EVENT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -1044,6 +1081,15 @@ LANGS.forEach(l=>{const b=document.createElement("button");b.dataset.code=l.code
 const langBtn=document.getElementById("langBtn");
 langBtn.onclick=e=>{e.stopPropagation();menu.classList.toggle("open");};
 document.addEventListener("click",()=>menu.classList.remove("open"));
+
+/* モバイルメニュー開閉 */
+const menuBtn=document.getElementById("menuBtn"),mobileMenu=document.getElementById("mobileMenu");
+if(menuBtn&&mobileMenu){
+  const closeMenu=()=>{mobileMenu.classList.remove("open");document.body.classList.remove("menu-open");menuBtn.setAttribute("aria-expanded","false");};
+  menuBtn.addEventListener("click",()=>{const open=!mobileMenu.classList.contains("open");
+    mobileMenu.classList.toggle("open",open);document.body.classList.toggle("menu-open",open);menuBtn.setAttribute("aria-expanded",String(open));});
+  mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
+}
 
 /* News（那珂通雅の経歴・沿革に基づく実データ。項目はここで追加・編集できます） */
 /* News — 創業者・那珂通雅の沿革（出典: Wikipedia「那珂通雅」） */

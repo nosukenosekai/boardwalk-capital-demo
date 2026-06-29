@@ -8,7 +8,7 @@
 <meta name="description" content="アドバイザリー・インキュベーション・投資を通じて、世界に挑む企業と人材を支援する投資会社です。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
 <style>
 :root{
   --bg:#ffffff;--bg2:#f2f5fd;--panel:#ffffff;--navy:#172a78;
@@ -20,11 +20,11 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);
-  font-family:"Manrope","Noto Sans JP",system-ui,sans-serif;font-weight:500;font-size:17px;line-height:1.9;letter-spacing:.01em;
+  font-family:"Manrope","Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;font-weight:500;font-size:17px;line-height:1.9;letter-spacing:.02em;
   line-break:strict;word-break:auto-phrase;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;}
 body.lock{overflow:hidden;height:100vh}
-.jp{font-family:"Noto Sans JP","Manrope",sans-serif}
+.jp{font-family:"Zen Kaku Gothic New","Noto Sans JP","Manrope",sans-serif}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px}
@@ -137,7 +137,7 @@ section{position:relative}
 .sub{color:var(--muted);max-width:54ch;margin-top:24px;font-size:1.12rem;line-height:1.85}
 
 /* reveal (re-triggers every time it enters view) */
-.r{opacity:0;transform:translateY(42px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .r.in{opacity:1;transform:none}
 .r-img{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s var(--ease)}
 .r-img.in{clip-path:inset(0 0 0 0)}
@@ -317,7 +317,7 @@ html[lang="th"] body,html[lang="th"] .jp{font-family:"Noto Sans Thai","Noto Sans
 /* ===== demido級プレミアム演出（白基調キープ／スクロールは即時・乗っ取らない） ===== */
 /* キネティック見出し：マスクからワイプアップ＋せり上がり（要素単位＝i18n/RTL安全） */
 .kx{opacity:0;clip-path:inset(0 0 110% 0);transform:translateY(.34em);
-  transition:clip-path 1s var(--ease),transform 1s var(--ease),opacity .8s var(--ease)}
+  transition:clip-path .72s var(--ease),transform .72s var(--ease),opacity .55s var(--ease)}
 .kx.in{opacity:1;clip-path:inset(0 0 -14% 0);transform:none}
 
 /* 全画面シネマティック画像セクション（背景固定で奥行き＝JSなし・スクロール影響なし） */
@@ -340,7 +340,7 @@ html[lang="th"] body,html[lang="th"] .jp{font-family:"Noto Sans Thai","Noto Sans
 .btn-fill:hover{transform:translateY(-2px)}
 .btn-line:hover{transform:translateY(-2px)}
 .creds .stat{transition:background .5s var(--ease),transform .5s var(--ease)}
-.creds .stat:hover{transform:translateY(-4px)}
+.creds .stat:hover .n{color:#cfe0ff}
 .navlinks a{transition:color .3s var(--ease),letter-spacing .3s var(--ease)}
 .navlinks a:hover{letter-spacing:.18em}
 .svc-row{cursor:default}
@@ -352,7 +352,7 @@ html[lang="th"] body,html[lang="th"] .jp{font-family:"Noto Sans Thai","Noto Sans
   animation:credsDrift 18s ease-in-out infinite alternate}
 @keyframes credsDrift{from{transform:translate3d(-7%,-5%,0) scale(1)}to{transform:translate3d(12%,7%,0) scale(1.2)}}
 .creds .stat{position:relative;transition:background .5s var(--ease),transform .5s var(--ease)}
-.creds .stat:hover{transform:translateY(-4px)}
+.creds .stat:hover .n{color:#cfe0ff}
 .creds .stat .n{font-size:clamp(3rem,5.6vw,4.8rem);font-weight:200}
 .creds .stat::after{content:"";position:absolute;left:34px;top:34px;width:0;height:2px;
   background:var(--blue-bright);transition:width .9s var(--ease) .25s}
@@ -1129,7 +1129,7 @@ const hero=document.querySelector(".hero");
     go();
     setTimeout(()=>{intro.parentNode&&intro.remove();},1200);
   }
-  const t=setTimeout(finish,1500);
+  const t=setTimeout(finish,1900);
   ["wheel","touchstart","keydown","click"].forEach(ev=>
     addEventListener(ev,function(){clearTimeout(t);finish();},{once:true,passive:true}));
 })();

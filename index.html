@@ -4,11 +4,14 @@
 <meta name="robots" content="noindex,nofollow" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>BOARDWALK CAPITAL｜ボードウォーク・キャピタル株式会社</title>
 <meta name="description" content="アドバイザリー・インキュベーション・投資を通じて、世界に挑む企業と人材を支援する投資会社です。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{
   --bg:#ffffff;--bg2:#f2f5fd;--panel:#ffffff;--navy:#172a78;
@@ -134,6 +137,8 @@ section{position:relative}
   color:var(--blue);text-transform:uppercase;margin-bottom:26px}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--blue)}
 .h2{font-weight:700;font-size:clamp(2.3rem,4.6vw,4rem);line-height:1.28;letter-spacing:.01em}
+/* 見出しは明朝体で“投資会社の格”を出す（本文はゴシックのまま）。ar/hi/th等は各言語フォント優先(高詳細度)で自動的に維持 */
+.hero h1,.h2,.philo blockquote{font-family:"Shippori Mincho","Zen Kaku Gothic New","Noto Sans JP",serif;font-weight:700;letter-spacing:.04em}
 .sub{color:var(--muted);max-width:54ch;margin-top:24px;font-size:1.12rem;line-height:1.85}
 
 /* reveal (re-triggers every time it enters view) */

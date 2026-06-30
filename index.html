@@ -11,7 +11,7 @@
 <meta name="description" content="アドバイザリー・インキュベーション・投資を通じて、世界に挑む企業と人材を支援する投資会社です。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@600;700;800&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
   --bg:#ffffff;--bg2:#f2f5fd;--panel:#ffffff;--navy:#172a78;
@@ -42,7 +42,7 @@ img{display:block;max-width:100%}
   opacity:0;animation:markIn 1s var(--ease) .15s forwards;position:relative;}
 .intro-mark::before{content:"";position:absolute;inset:9px;background:var(--blue)}
 @keyframes markIn{to{opacity:1;transform:rotate(45deg) scale(1)}}
-.intro-word{font-family:"Manrope";font-weight:700;letter-spacing:.34em;font-size:clamp(1.7rem,5.4vw,2.8rem);text-indent:.34em;color:var(--navy);white-space:nowrap}
+.intro-word{font-family:"Cinzel",serif;font-weight:700;letter-spacing:.2em;font-size:clamp(1.8rem,5.6vw,3rem);text-indent:.2em;color:var(--navy);white-space:nowrap}
 .intro-word span{display:inline-block;opacity:0;transform:translateY(26px) rotate(4deg);animation:letterIn .7s var(--ease) forwards}
 @keyframes letterIn{to{opacity:1;transform:none}}
 .intro-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue-bright),transparent);
@@ -58,7 +58,7 @@ header.solid .nav{height:68px}
 .brand{display:flex;align-items:center;gap:14px}
 .brand .bm{width:26px;height:26px;flex:0 0 26px;border:1px solid var(--navy);transform:rotate(45deg);position:relative}
 .brand .bm::before{content:"";position:absolute;inset:6px;background:var(--blue)}
-.brand b{font-family:"Manrope";font-weight:700;font-size:1.12rem;letter-spacing:.3em;text-indent:.3em;color:var(--navy)}
+.brand b{font-family:"Cinzel",serif;font-weight:700;font-size:1.22rem;letter-spacing:.14em;text-indent:.14em;color:var(--navy)}
 /* header is transparent over the dark hero → light text by default, dark when solid */
 header:not(.solid) .brand .bm{border-color:#fff}
 header:not(.solid) .brand b{color:#fff}
@@ -334,7 +334,7 @@ html[lang="th"] body,html[lang="th"] .jp{font-family:"Noto Sans Thai","Noto Sans
 .cine .eye{font-family:"Manrope";font-weight:600;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
   color:#cfe0ff;display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:30px}
 .cine .eye::before,.cine .eye::after{content:"";width:40px;height:1px;background:#cfe0ff;opacity:.6}
-.cine .mark{font-family:"Manrope";font-weight:700;letter-spacing:.16em;color:#fff;
+.cine .mark{font-family:"Cinzel",serif;font-weight:700;letter-spacing:.1em;color:#fff;
   font-size:clamp(2rem,6.4vw,4.8rem);line-height:1.12}
 .cine .line{width:0;height:1px;margin:30px auto 0;background:linear-gradient(90deg,transparent,#7aa2ff,transparent);transition:width 1.2s var(--ease) .25s}
 .cine .inner.in .line{width:220px}
@@ -1099,6 +1099,7 @@ const NEWS=[
  {date:"2025.02",img:"img/news/dusk.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社LAUGH SHAREの顧問に就任しました。",en:"Founder Michimasa Naka was appointed Advisor to LAUGH SHARE Inc."}},
  {date:"2022.10",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅がHRクラウド株式会社の社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of HR Cloud Inc."}},
  {date:"2021.05",img:"img/news/skyline.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が寶結株式会社（旧HOUYOU）の社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Houyou Inc."}},
+ {date:"2020.11",img:"img/news/city.jpg",cat:{ja:"対談",en:"Dialogue"},title:{ja:"創業者・那珂通雅が、キャロライン・ケネディ元駐日米国大使の特別講演（fabbit Conference 全国大会）でモデレーターを務め、対談しました。",en:"Founder Michimasa Naka moderated and held a dialogue with Caroline Kennedy, former U.S. Ambassador to Japan, at her keynote during the Annual fabbit Conference."}},
  {date:"2020.05",img:"img/news/dusk.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ベクトルの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vector Inc."}},
  {date:"2019.03",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が株式会社ビジョンの社外取締役に就任しました。",en:"Founder Michimasa Naka was appointed Outside Director of Vision Inc."}},
  {date:"2016.07",img:"img/news/skyline.jpg",cat:{ja:"会社情報",en:"Company"},title:{ja:"ボードウォーク・キャピタル株式会社を設立しました。",en:"Boardwalk Capital Inc. was founded."}},
@@ -1126,8 +1127,8 @@ applyLang(
 );
 
 /* partners marquee — クリックで各社サイトへ（公式URL・到達確認済み。要最終確認） */
-const PARTNERS=["glm","vectorinc","vision","istyle","geniee","apaman","finc","fabbit","donutrobotics"];
-const PURL={glm:"https://glm.jp/",vectorinc:"https://vectorinc.co.jp/",vision:"https://www.vision-net.co.jp/",istyle:"https://www.istyle.co.jp/",geniee:"https://geniee.co.jp/",apaman:"https://apamanshop-hd.co.jp/",finc:"https://finc.com/",fabbit:"https://fabbit.co.jp/",donutrobotics:"https://www.donutrobotics.com/"};
+const PARTNERS=["vectorinc","vision","istyle","geniee","glm","finc","fabbit","donutrobotics"];
+const PURL={vectorinc:"https://vectorinc.co.jp/",vision:"https://www.vision-net.co.jp/",istyle:"https://www.istyle.co.jp/",geniee:"https://geniee.co.jp/",glm:"https://glm.jp/",finc:"https://finc.com/",fabbit:"https://fabbit.co.jp/",donutrobotics:"https://www.donutrobotics.com/"};
 const mq=document.getElementById("marquee");
 const buildLogos=()=>PARTNERS.map(p=>{const img=`<img src="img/partner/${p}.png" alt="${p}">`;
   return PURL[p]?`<a class="logo" href="${PURL[p]}" target="_blank" rel="noopener">${img}</a>`:`<div class="logo">${img}</div>`;}).join("");
@@ -1135,7 +1136,7 @@ mq.innerHTML=buildLogos()+buildLogos();
 /* 企業名（日本語社名）→公式URL（グリッド用・全社） ※キスリー株式会社は確実な現行公式URLが確認できず未掲載 */
 const CURL={
 "GLM株式会社":"https://glm.jp/","株式会社ベクトル":"https://vectorinc.co.jp/","株式会社ビジョン":"https://www.vision-net.co.jp/",
-"株式会社アイスタイル":"https://www.istyle.co.jp/","株式会社ジーニー":"https://geniee.co.jp/","APAMAN株式会社":"https://apamanshop-hd.co.jp/",
+"株式会社アイスタイル":"https://www.istyle.co.jp/","株式会社ジーニー":"https://geniee.co.jp/",
 "株式会社FiNC":"https://finc.com/","fabbit株式会社":"https://fabbit.co.jp/","ドーナツ・ロボティクス株式会社":"https://www.donutrobotics.com/",
 "プリベント少額短期保険株式会社":"https://mikata-ins.co.jp/","Digital Entertainment Asset":"https://dea.sg/en/","Telcoin":"https://www.telco.in/en",
 "Conny & Co.":"https://connyandco.com/","IP Nexus":"https://www.ipnexus.com/","ecobike株式会社":"https://ecobike.co.jp/",
@@ -1147,16 +1148,17 @@ const CURL={
 "the Babels, Inc.":"https://www.babels.co/","株式会社JLBC":"https://jlbc.jp/","WQC株式会社":"https://www.wqctech.com/"
 };
 
-/* 投資先・パートナー企業（partner.php より・全34社） */
+/* 投資先・パートナー企業（全33社）。先頭は上場各社を時価総額の大きい順（2026/6時点）、以降は非上場。APAMANは掲載除外。 */
 const PCO=[
-["GLM株式会社","GLM"],["株式会社ベクトル","VECTOR"],["株式会社ビジョン","Vision"],["株式会社アイスタイル","istyle"],
-["株式会社ジーニー","Geniee"],["APAMAN株式会社","APAMAN"],["株式会社FiNC","FiNC"],["fabbit株式会社","fabbit"],
+["株式会社ベクトル","VECTOR"],["株式会社ビジョン","Vision"],["株式会社アイスタイル","istyle"],
+["株式会社eWeLL","eWeLL"],["株式会社ジーニー","Geniee"],["Houyou株式会社","Houyou"],
+["GLM株式会社","GLM"],["株式会社FiNC","FiNC"],["fabbit株式会社","fabbit"],
 ["ドーナツ・ロボティクス株式会社","donut robotics"],["プリベント少額短期保険株式会社","Prevent SAST Insurance"],
 ["Digital Entertainment Asset",""],["Telcoin",""],["Conny & Co.",""],["IP Nexus",""],
 ["ecobike株式会社","ecobike"],["株式会社Fun Group","Fun Group"],["株式会社RECEPTIONIST","RECEPTIONIST"],
-["株式会社eWeLL","eWeLL"],["株式会社アイデンティティー","identity"],["Houyou株式会社","Houyou"],
-["株式会社Huber.","Huber."],["Welltool株式会社","Welltool"],["株式会社ドゥーファ","dofa"],["株式会社m-gram","m-gram"],
-["エンタッチ株式会社","enTouch"],["株式会社FUN UP","FUN UP"],["Xperisus Inc.",""],["株式会社プチジョブ","Petitjob"],
+["株式会社アイデンティティー","identity"],["株式会社Huber.","Huber."],["Welltool株式会社","Welltool"],
+["株式会社ドゥーファ","dofa"],["株式会社m-gram","m-gram"],["エンタッチ株式会社","enTouch"],
+["株式会社FUN UP","FUN UP"],["Xperisus Inc.",""],["株式会社プチジョブ","Petitjob"],
 ["アクシオンリサーチ株式会社","AXION RESEARCH"],["株式会社BALEUM","BALEUM"],["the Babels, Inc.",""],
 ["キスリー株式会社","QiTHREE"],["株式会社JLBC","JLBC"],["WQC株式会社","WQC"]
 ];

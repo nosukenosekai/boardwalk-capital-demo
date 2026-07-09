@@ -67,19 +67,12 @@ img{display:block;max-width:100%}
   opacity:0;animation:markIn 1s var(--ease) .15s forwards;position:relative;}
 .intro-mark::before{content:"";position:absolute;inset:9px;background:var(--blue)}
 @keyframes markIn{to{opacity:1;transform:rotate(45deg) scale(1)}}
-.intro-word{font-family:"Cinzel",serif;font-weight:700;letter-spacing:.2em;font-size:clamp(1.8rem,5.6vw,3rem);text-indent:.2em;color:var(--navy);white-space:nowrap}
+.intro-word{font-family:Georgia,"Times New Roman","Noto Serif JP",serif;font-variant:small-caps;font-weight:700;letter-spacing:.05em;font-size:clamp(2.5rem,8.6vw,4.7rem);color:var(--navy);white-space:nowrap}
 .intro-word span{display:inline-block;opacity:0;transform:translateY(26px) rotate(4deg);animation:letterIn .7s var(--ease) forwards}
 @keyframes letterIn{to{opacity:1;transform:none}}
 .intro-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue-bright),transparent);
   animation:lineGrow 1.1s var(--ease) .7s forwards}
 @keyframes lineGrow{to{width:230px}}
-.intro-logo-wrap{position:relative;overflow:hidden;border-radius:2px;opacity:0;transform:translateY(30px) scale(.82);animation:introLogoIn 1s var(--ease) .12s forwards}
-.intro-logo{height:clamp(60px,11vw,112px);width:auto;display:block}
-.intro-logo-wrap::after{content:"";position:absolute;top:0;left:0;height:100%;width:60%;pointer-events:none;
-  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.45) 50%,transparent 62%);
-  transform:translateX(-160%);animation:introShine .95s var(--ease) .7s forwards}
-@keyframes introLogoIn{to{opacity:1;transform:none}}
-@keyframes introShine{to{transform:translateX(260%)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* HEADER */
@@ -487,7 +480,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 <!-- INTRO（オープニング演出・約1.5秒／スクロール等で即スキップ） -->
 <div id="intro">
-  <div class="intro-logo-wrap"><img class="intro-logo" src="img/logo.jpg" alt="BOARDWALK" /></div>
+  <div class="intro-word"><span style="animation-delay:.15s">B</span><span style="animation-delay:.20s">o</span><span style="animation-delay:.25s">a</span><span style="animation-delay:.30s">r</span><span style="animation-delay:.35s">d</span><span style="animation-delay:.43s">W</span><span style="animation-delay:.48s">a</span><span style="animation-delay:.53s">l</span><span style="animation-delay:.58s">k</span></div>
   <div class="intro-line"></div>
 </div>
 

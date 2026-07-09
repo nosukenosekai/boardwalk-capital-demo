@@ -27,6 +27,7 @@
   "name": "ボードウォーク・キャピタル株式会社",
   "alternateName": "Boardwalk Capital Inc.",
   "url": "https://boardwalkcapitalinc.com/",
+  "logo": "https://boardwalkcapitalinc.com/img/logo.jpg",
   "image": "https://boardwalkcapitalinc.com/img/hero.jpg",
   "description": "アドバイザリー・インキュベーション・エンジェル投資を通じて、世界に挑む企業と人材を支援する投資会社です。",
   "foundingDate": "2016-07",
@@ -83,6 +84,7 @@ header.solid .nav{height:68px}
 .brand .bm{width:26px;height:26px;flex:0 0 26px;border:1px solid var(--navy);transform:rotate(45deg);position:relative}
 .brand .bm::before{content:"";position:absolute;inset:6px;background:var(--blue)}
 .brand b{font-family:"Cinzel",serif;font-weight:700;font-size:1.22rem;letter-spacing:.14em;text-indent:.14em;color:var(--navy)}
+.brand-logo{height:30px;width:auto;display:block;border-radius:2px}
 /* header is transparent over the dark hero → light text by default, dark when solid */
 header:not(.solid) .brand .bm{border-color:#fff}
 header:not(.solid) .brand b{color:#fff}
@@ -450,6 +452,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
   .nav{height:64px}
   header.solid .nav{height:58px}
   .brand b{font-size:.92rem;letter-spacing:.22em}
+  .brand-logo{height:24px}
   .hero{min-height:88vh}
   .hero-inner{padding-bottom:7vh}
   .hero h1{font-size:clamp(1.5rem,6.6vw,2rem);line-height:1.32;letter-spacing:.02em;margin-bottom:22px}
@@ -486,7 +489,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="#top"><span class="bm"></span><b>BOARDWALK</b></a>
+    <a class="brand" href="#top"><img class="brand-logo" src="img/logo.jpg" alt="BOARDWALK" /></a>
     <nav class="navlinks">
       <a href="#top">TOP</a>
       <a href="#philosophy">ABOUT</a>
@@ -698,7 +701,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="#top"><span class="bm"></span><b>BOARDWALK</b></a>
+    <a class="brand" href="#top"><img class="brand-logo" src="img/logo.jpg" alt="BOARDWALK" /></a>
     <div class="sm">© 2016–2026 Boardwalk Capital Inc. <span data-i18n="foot.r">All rights reserved.</span></div>
   </div>
 </footer>

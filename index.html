@@ -684,15 +684,17 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
         <div class="info-row"><span class="k jp" data-i18n="ct.k3">設立</span><span class="v jp" data-i18n="ct.v3">2016年7月</span></div>
         <div class="info-row"><span class="k jp" data-i18n="ct.k4">事業内容</span><span class="v jp" data-i18n="ct.v4">アドバイザリー / インキュベーション / エンジェル投資</span></div>
       </div>
-      <form class="form r d1" onsubmit="event.preventDefault();this.reset();alert(I18N[CUR]['ct.sent']);">
+      <form class="form r d1" action="https://formspree.io/f/mwvdgvlb" method="POST" onsubmit="return submitContact(event,this);">
+      <input type="hidden" name="_subject" value="【Boardwalk Capital】サイトからのお問い合わせ" />
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
       <label data-i18n="ct.l1">お名前</label>
-      <input type="text" data-i18n-ph="ct.f1" placeholder="山田 太郎" required />
+      <input type="text" name="name" data-i18n-ph="ct.f1" placeholder="山田 太郎" required />
       <label data-i18n="ct.l2">メール</label>
-      <input type="email" data-i18n-ph="ct.f2" placeholder="you@example.com" required />
+      <input type="email" name="email" data-i18n-ph="ct.f2" placeholder="you@example.com" required />
       <label data-i18n="ct.l3">会社名</label>
-      <input type="text" data-i18n-ph="ct.f3" placeholder="株式会社〇〇" />
+      <input type="text" name="company" data-i18n-ph="ct.f3" placeholder="株式会社〇〇" />
       <label data-i18n="ct.l4">ご相談内容</label>
-      <textarea data-i18n-ph="ct.f4" placeholder="ご相談内容をご記入ください" required></textarea>
+      <textarea name="message" data-i18n-ph="ct.f4" placeholder="ご相談内容をご記入ください" required></textarea>
       <button type="submit" class="btn btn-fill" style="justify-content:center;margin-top:8px" data-i18n="ct.send">送信する <span class="ar">→</span></button>
     </form>
     </div>
@@ -1144,6 +1146,18 @@ const NEWS=[
  {date:"1999",img:"img/news/dusk.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が日興ソロモン・スミス・バーニー証券の債券本部ディレクターに就任しました。",en:"Founder Michimasa Naka was appointed Director of the Fixed Income Division at Nikko Salomon Smith Barney."}},
  {date:"1989",img:"img/news/city.jpg",cat:{ja:"沿革",en:"History"},title:{ja:"創業者・那珂通雅が慶應義塾大学大学院を修了し、ソロモン・ブラザーズ・アジア証券会社に入社しました。",en:"Founder Michimasa Naka completed his master’s degree at Keio University and joined Salomon Brothers Asia."}},
 ];
+async function submitContact(e,form){
+  e.preventDefault();
+  const btn=form.querySelector('button[type=submit]');
+  const orig=btn.innerHTML; btn.disabled=true; btn.style.opacity=".65";
+  try{
+    const res=await fetch(form.action,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)});
+    if(res.ok){ form.reset(); alert((I18N[CUR]&&I18N[CUR]["ct.sent"])||I18N.en["ct.sent"]); }
+    else { alert((I18N[CUR]&&I18N[CUR]["ct.err"])||"送信に失敗しました。時間をおいて再度お試しください。"); }
+  }catch(err){ alert((I18N[CUR]&&I18N[CUR]["ct.err"])||"送信に失敗しました。通信環境をご確認ください。"); }
+  finally{ btn.disabled=false; btn.style.opacity=""; btn.innerHTML=orig; }
+  return false;
+}
 function renderNews(lang){
   const el=document.getElementById("newsList");if(!el)return;
   el.innerHTML=NEWS.map(n=>{

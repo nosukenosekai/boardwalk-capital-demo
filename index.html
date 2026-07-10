@@ -58,6 +58,17 @@ img{display:block;max-width:100%}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px}
 .accent{color:var(--ice)}
 
+/* A11Y: スキップリンク（フォーカス時のみ可視） */
+.skip-link{position:absolute;left:16px;top:-64px;z-index:400;
+  background:var(--blue);color:#fff;padding:12px 20px;border-radius:6px;
+  font-family:"Manrope";font-weight:600;font-size:.86rem;letter-spacing:.06em;
+  box-shadow:0 10px 30px rgba(10,28,63,.25);transition:top .2s var(--ease)}
+.skip-link:focus{top:16px}
+/* A11Y: 視認できるフォーカスリング（キーボード操作時のみ） */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+.skip-link:focus-visible{outline-color:#fff;outline-offset:2px}
+
 /* INTRO */
 #intro{position:fixed;inset:0;z-index:300;background:var(--bg);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
@@ -474,12 +485,28 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
   .ct-head{margin-bottom:34px}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation-duration:.001s!important;transition-duration:.2s!important}
-  .hero-media img{transform:none}
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  /* ヒーロー背景（ケンバーンズ/フェード）を停止し、確実に表示 */
+  .hero-media img{transform:none!important;animation:none!important;opacity:1!important}
+  /* リビール(.r/.r-img)・stagger を最初から可視に（スクロール/JS非依存で全コンテンツ表示） */
+  .r,.r-img,[data-stagger]>*{opacity:1!important;transform:none!important;clip-path:none!important}
+  /* ヒーロー見出し・リード・CTA の初期非表示を解除 */
+  .hero-eyebrow,.hero h1 .l span,.hero p.lead,.hero-cta{opacity:1!important;transform:none!important}
+  /* イントロ演出（文字・マーク・ロゴリビール）を静止表示 */
+  .intro-word span,.intro-mark,.intro-logo-wrap,.intro-line{opacity:1!important;transform:none!important;
+    clip-path:none!important;animation:none!important;width:auto}
+  /* marquee（パートナーロゴ横スクロール）・スクロールキューを停止 */
+  .marquee{animation:none!important}
+  .scrollcue .bar::after{animation:none!important}
 }
 </style>
 </head>
 <body>
+
+<!-- A11Y: 本文へスキップ（キーボードフォーカス時のみ可視／メインコンテンツに着地） -->
+<a class="skip-link" href="#main-content">本文へスキップ</a>
 
 <!-- INTRO（オープニング演出・約1.5秒／スクロール等で即スキップ） -->
 <div id="intro">
@@ -499,13 +526,13 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
       <a href="#contact">CONTACT</a>
     </nav>
     <div class="lang">
-      <button class="lang-btn" id="langBtn" aria-haspopup="true">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-controls="langMenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
         <span id="langLabel">日本語</span>
       </button>
       <div class="lang-menu" id="langMenu" role="menu"></div>
     </div>
-    <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -523,6 +550,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <a id="main-content" tabindex="-1"></a>
   <div class="hero-media"><img src="img/hero.jpg" alt="" /></div>
   <div class="wrap hero-inner">
     <div class="hero-eyebrow"><span data-i18n="hero.eyebrow">Advisory · Incubation · Angel Investment</span></div>
@@ -687,14 +715,14 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
       <form class="form r d1" action="https://formspree.io/f/mwvdgvlb" method="POST" onsubmit="return submitContact(event,this);">
       <input type="hidden" name="_subject" value="【Boardwalk Capital】サイトからのお問い合わせ" />
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-      <label data-i18n="ct.l1">お名前</label>
-      <input type="text" name="name" data-i18n-ph="ct.f1" placeholder="山田 太郎" required />
-      <label data-i18n="ct.l2">メール</label>
-      <input type="email" name="email" data-i18n-ph="ct.f2" placeholder="you@example.com" required />
-      <label data-i18n="ct.l3">会社名</label>
-      <input type="text" name="company" data-i18n-ph="ct.f3" placeholder="株式会社〇〇" />
-      <label data-i18n="ct.l4">ご相談内容</label>
-      <textarea name="message" data-i18n-ph="ct.f4" placeholder="ご相談内容をご記入ください" required></textarea>
+      <label for="contact-name" data-i18n="ct.l1">お名前</label>
+      <input id="contact-name" type="text" name="name" data-i18n-ph="ct.f1" placeholder="山田 太郎" required />
+      <label for="contact-email" data-i18n="ct.l2">メール</label>
+      <input id="contact-email" type="email" name="email" data-i18n-ph="ct.f2" placeholder="you@example.com" required />
+      <label for="contact-company" data-i18n="ct.l3">会社名</label>
+      <input id="contact-company" type="text" name="company" data-i18n-ph="ct.f3" placeholder="株式会社〇〇" />
+      <label for="contact-message" data-i18n="ct.l4">ご相談内容</label>
+      <textarea id="contact-message" name="message" data-i18n-ph="ct.f4" placeholder="ご相談内容をご記入ください" required></textarea>
       <button type="submit" class="btn btn-fill" style="justify-content:center;margin-top:8px" data-i18n="ct.send">送信する <span class="ar">→</span></button>
     </form>
     </div>
@@ -1116,12 +1144,16 @@ function detectLang(){
   return "en";
 }
 const menu=document.getElementById("langMenu");
+const langBtn=document.getElementById("langBtn");
+/* 言語メニュー開閉：aria-expanded を状態に追従させる */
+function setLangOpen(open){menu.classList.toggle("open",open);langBtn.setAttribute("aria-expanded",String(open));}
 LANGS.forEach(l=>{const b=document.createElement("button");b.dataset.code=l.code;
   b.innerHTML=`<span class="flag">${l.flag}</span><span>${l.label}</span><span class="native">${l.native}</span>`;
-  b.onclick=()=>{applyLang(l.code);menu.classList.remove("open");};menu.appendChild(b);});
-const langBtn=document.getElementById("langBtn");
-langBtn.onclick=e=>{e.stopPropagation();menu.classList.toggle("open");};
-document.addEventListener("click",()=>menu.classList.remove("open"));
+  b.onclick=()=>{applyLang(l.code);setLangOpen(false);};menu.appendChild(b);});
+langBtn.onclick=e=>{e.stopPropagation();setLangOpen(!menu.classList.contains("open"));};
+document.addEventListener("click",()=>setLangOpen(false));
+/* Escキーで言語メニューを閉じ、ボタンにフォーカスを戻す */
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&menu.classList.contains("open")){setLangOpen(false);langBtn.focus();}});
 
 /* モバイルメニュー開閉 */
 const menuBtn=document.getElementById("menuBtn"),mobileMenu=document.getElementById("mobileMenu");
@@ -1130,6 +1162,8 @@ if(menuBtn&&mobileMenu){
   menuBtn.addEventListener("click",()=>{const open=!mobileMenu.classList.contains("open");
     mobileMenu.classList.toggle("open",open);document.body.classList.toggle("menu-open",open);menuBtn.setAttribute("aria-expanded",String(open));});
   mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
+  /* Escキーでモバイルメニューを閉じ、ボタンにフォーカスを戻す */
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&mobileMenu.classList.contains("open")){closeMenu();menuBtn.focus();}});
 }
 
 /* News（那珂通雅の経歴・沿革に基づく実データ。項目はここで追加・編集できます） */
@@ -1219,6 +1253,8 @@ const pcEl=document.getElementById("pcompanies");
 if(pcEl)pcEl.innerHTML=PCO.map(c=>{const inner=`${c[0]}${c[1]?`<small>${c[1]}</small>`:""}`;const u=CURL[c[0]];
   return u?`<a class="pc" href="${u}" target="_blank" rel="noopener">${inner}<span class="ext">↗</span></a>`:`<div class="pc">${inner}</div>`;}).join("");
 
+/* A11Y: prefers-reduced-motion 判定（イントロ即終了・カウントアップ/パララックスを無効化） */
+const prefersReduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* オープニング：まず桟橋が映り（太陽へズームイン）→ 少し置いて文字が出る */
 const hero=document.querySelector(".hero");
 /* オープニング演出 → ヒーロー始動。約1.5秒で自動終了、スクロール/タップ/キーで即スキップ。 */
@@ -1235,6 +1271,7 @@ const hero=document.querySelector(".hero");
     go();
     setTimeout(()=>{intro.parentNode&&intro.remove();},1200);
   }
+  if(prefersReduce){finish();return;}   /* reduced-motion時はイントロ演出を即終了 */
   const t=setTimeout(finish,1900);
   ["wheel","touchstart","keydown","click"].forEach(ev=>
     addEventListener(ev,function(){clearTimeout(t);finish();},{once:true,passive:true}));
@@ -1248,6 +1285,7 @@ addEventListener("scroll",()=>hdr.classList.toggle("solid",scrollY>40),{passive:
 function countUp(el){
   if(el.dataset.plain)return;
   const target=+el.dataset.count,span=el.querySelector("[data-num]");if(!span)return;
+  if(prefersReduce){span.textContent=target;return;}   /* reduced-motion時は最終値を即表示 */
   const dur=1400,t0=performance.now();
   function tick(now){const p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);span.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(tick);}
   requestAnimationFrame(tick);
@@ -1271,7 +1309,7 @@ function parallax(){const vh=innerHeight;plx.forEach(el=>{
   const p=el.parentElement.getBoundingClientRect();const center=p.top+p.height/2;
   const off=(center-vh/2)/vh;el.style.transform=`translateY(${(off*-26).toFixed(1)}px) scale(1.12)`;
 });}
-addEventListener("scroll",parallax,{passive:true});parallax();
+if(!prefersReduce){addEventListener("scroll",parallax,{passive:true});parallax();}   /* reduced-motion時はパララックス無効 */
 
 /* ヒーロー背景はCSSの連続ケンバーンズ（無限往復）で常時ゆっくり動く。
    旧スクロール視差JSはinline transformでケンバーンズを上書き＝静止させるため撤去。 */

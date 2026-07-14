@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
@@ -538,7 +539,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
     </h1>
     <p class="lead jp" data-i18n="hero.lead">ボードウォーク・キャピタルは、アドバイザリー・インキュベーション・投資を通じて、世界に挑む企業と人材を支援する投資会社です。</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-fill" data-i18n="hero.cta1">お問い合わせ <span class="ar">→</span></a>
+      <a href="#contact" class="btn btn-fill" data-i18n="hero.cta1" data-i18n-html>お問い合わせ <span class="ar">→</span></a>
       <a href="#services" class="btn btn-line" data-i18n="hero.cta2">事業内容を見る</a>
     </div>
   </div>
@@ -701,7 +702,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
       <input type="text" name="company" data-i18n-ph="ct.f3" placeholder="株式会社〇〇" />
       <label data-i18n="ct.l4">ご相談内容</label>
       <textarea name="message" data-i18n-ph="ct.f4" placeholder="ご相談内容をご記入ください" required></textarea>
-      <button type="submit" class="btn btn-fill" style="justify-content:center;margin-top:8px" data-i18n="ct.send">送信する <span class="ar">→</span></button>
+      <button type="submit" class="btn btn-fill" style="justify-content:center;margin-top:8px" data-i18n="ct.send" data-i18n-html>送信する <span class="ar">→</span></button>
     </form>
     </div>
   </div>
@@ -1101,7 +1102,7 @@ function applyLang(code){
   const T=k=>d[k]!=null?d[k]:en[k];   /* 未翻訳キーは英語にフォールバック */
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const k=el.getAttribute("data-i18n"),v=T(k);if(v==null)return;
-    if(el.hasAttribute("data-i18n-html")||/<span|<br/.test(v))el.innerHTML=v;else el.textContent=v;
+    if(el.hasAttribute("data-i18n-html"))el.innerHTML=v;else el.textContent=v;
   });
   document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.getAttribute("data-i18n-ph"),v=T(k);if(v!=null)el.placeholder=v;});
   renderNews(code);

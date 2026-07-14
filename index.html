@@ -72,7 +72,7 @@ img{display:block;max-width:100%}
   opacity:0;animation:markIn 1s var(--ease) .15s forwards;position:relative;}
 .intro-mark::before{content:"";position:absolute;inset:9px;background:var(--blue)}
 @keyframes markIn{to{opacity:1;transform:rotate(45deg) scale(1)}}
-.intro-wm{font-size:clamp(2.4rem,8.4vw,4.6rem);color:#333a57}
+.intro-wm{font-size:clamp(2.8rem,9.6vw,5.4rem);color:#333a57}
 .intro-wm span{display:inline-block;opacity:0;transform:translateY(28px) rotate(3deg);animation:letterIn .75s var(--ease) forwards}
 @keyframes letterIn{to{opacity:1;transform:none}}
 .intro-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue-bright),transparent);
@@ -92,8 +92,8 @@ header.solid .nav{height:68px}
 .brand .bm{width:26px;height:26px;flex:0 0 26px;border:1px solid var(--navy);transform:rotate(45deg);position:relative}
 .brand .bm::before{content:"";position:absolute;inset:6px;background:var(--blue)}
 .wordmark{font-family:"Cinzel",serif;font-weight:600;letter-spacing:.05em;white-space:nowrap;color:#333a57;line-height:1}
-.wordmark .s{font-size:.72em}
-.brand .wordmark{font-size:1.18rem}
+.wordmark .s{font-size:1em}
+.brand .wordmark{font-size:1.34rem}
 /* header is transparent over the dark hero → light text by default, dark when solid */
 header:not(.solid) .brand .bm{border-color:#fff}
 header:not(.solid) .brand .wordmark{color:#fff}
@@ -461,7 +461,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
   .pad{padding:68px 0}
   .nav{height:64px}
   header.solid .nav{height:58px}
-  .brand .wordmark{font-size:.95rem}
+  .brand .wordmark{font-size:1.08rem}
   .hero{min-height:88vh}
   .hero-inner{padding-bottom:7vh}
   .hero h1{font-size:clamp(1.5rem,6.6vw,2rem);line-height:1.32;letter-spacing:.02em;margin-bottom:22px}

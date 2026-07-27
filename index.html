@@ -774,7 +774,7 @@ ja:{
 "ct.k1":"社名","ct.k2":"英文社名","ct.k3":"設立","ct.v3":"2016年7月","ct.k4":"事業内容","ct.v4":"アドバイザリー / インキュベーション / エンジェル投資",
 "ct.l1":"お名前","ct.l2":"メール","ct.l3":"会社名","ct.l4":"ご相談内容",
 "ct.f1":"山田 太郎","ct.f2":"you@example.com","ct.f3":"株式会社〇〇","ct.f4":"ご相談内容をご記入ください",
-"ct.send":"送信する <span class=\"ar\">→</span>","ct.sent":"送信しました。ありがとうございます。","foot.r":"無断転載を禁じます。"
+"ct.send":"送信する <span class=\"ar\">→</span>","ct.sent":"送信しました。ありがとうございます。","ct.err":"送信に失敗しました。時間をおいて再度お試しください。","foot.r":"無断転載を禁じます。"
 },
 en:{
 "nav.about":"Philosophy","nav.track":"Track Record","nav.services":"Services","nav.team":"Members","nav.news":"News","nav.contact":"Contact",
@@ -809,7 +809,7 @@ en:{
 "ct.k1":"Company","ct.k2":"English Name","ct.k3":"Founded","ct.v3":"July 2016","ct.k4":"Business","ct.v4":"Advisory / Incubation / Angel Investment",
 "ct.l1":"Name","ct.l2":"Email","ct.l3":"Company","ct.l4":"Message",
 "ct.f1":"Your name","ct.f2":"you@example.com","ct.f3":"Company name","ct.f4":"How can we help?",
-"ct.send":"Send <span class=\"ar\">→</span>","ct.sent":"Message sent. Thank you.","foot.r":"All rights reserved."
+"ct.send":"Send <span class=\"ar\">→</span>","ct.sent":"Message sent. Thank you.","ct.err":"Failed to send. Please try again later.","foot.r":"All rights reserved."
 },
 it:{
 "nav.about":"Filosofia","nav.track":"Esperienza","nav.services":"Servizi","nav.team":"Team","nav.news":"News","nav.contact":"Contatti",
@@ -1162,8 +1162,8 @@ async function submitContact(e,form){
   try{
     const res=await fetch(form.action,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)});
     if(res.ok){ form.reset(); alert((I18N[CUR]&&I18N[CUR]["ct.sent"])||I18N.en["ct.sent"]); }
-    else { alert((I18N[CUR]&&I18N[CUR]["ct.err"])||"送信に失敗しました。時間をおいて再度お試しください。"); }
-  }catch(err){ alert((I18N[CUR]&&I18N[CUR]["ct.err"])||"送信に失敗しました。通信環境をご確認ください。"); }
+    else { alert((I18N[CUR]&&I18N[CUR]["ct.err"])||I18N.en["ct.err"]); }
+  }catch(err){ alert((I18N[CUR]&&I18N[CUR]["ct.err"])||I18N.en["ct.err"]); }
   finally{ btn.disabled=false; btn.style.opacity=""; btn.innerHTML=orig; }
   return false;
 }

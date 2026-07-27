@@ -1108,6 +1108,10 @@ function applyLang(code){
   });
   document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.getAttribute("data-i18n-ph"),v=T(k);if(v!=null)el.placeholder=v;});
   renderNews(code);
+  /* 言語別に title / meta description を更新(常に日本語だった問題を解消・共有/翻訳/クロール時の言語を正す) */
+  const _desc=(T("hero.lead")||"").replace(/<[^>]+>/g,"");
+  ["meta[name=\"description\"]","meta[property=\"og:description\"]","meta[name=\"twitter:description\"]"].forEach(s=>{const el=document.querySelector(s);if(el)el.setAttribute("content",_desc);});
+  document.title=code==="ja"?"BOARDWALK CAPITAL｜ボードウォーク・キャピタル株式会社":"BOARDWALK CAPITAL | Advisory · Incubation · Angel Investment";
   const m=LANGS.find(l=>l.code===code)||LANG_NAMES[code]||{label:code};
   document.getElementById("langLabel").textContent=m.label;
   document.querySelectorAll("#langMenu button").forEach(b=>b.classList.toggle("active",b.dataset.code===code));

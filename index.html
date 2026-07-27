@@ -1173,14 +1173,7 @@ applyLang(
   : detectLang()
 );
 
-/* partners marquee — クリックで各社サイトへ（公式URL・到達確認済み。要最終確認） */
-const PARTNERS=["vectorinc","vision","istyle","geniee","glm","finc","fabbit","donutrobotics"];
-const PURL={vectorinc:"https://vectorinc.co.jp/",vision:"https://www.vision-net.co.jp/",istyle:"https://www.istyle.co.jp/",geniee:"https://geniee.co.jp/",glm:"https://glm.jp/",finc:"https://finc.com/",fabbit:"https://fabbit.co.jp/",donutrobotics:"https://www.donutrobotics.com/"};
-const mq=document.getElementById("marquee");
-const buildLogos=()=>PARTNERS.map(p=>{const img=`<img src="img/partner/${p}.png" alt="${p}">`;
-  return PURL[p]?`<a class="logo" href="${PURL[p]}" target="_blank" rel="noopener">${img}</a>`:`<div class="logo">${img}</div>`;}).join("");
-mq.innerHTML=buildLogos()+buildLogos();
-/* 企業名（日本語社名）→公式URL（グリッド用・全社） ※キスリー株式会社は確実な現行公式URLが確認できず未掲載 */
+/* 企業名（日本語社名）→公式URL（唯一のURL台帳。マーキー・グリッド共通） ※キスリー株式会社は確実な現行公式URLが確認できず未掲載 */
 const CURL={
 "GLM株式会社":"https://glm.jp/","株式会社ベクトル":"https://vectorinc.co.jp/","株式会社ビジョン":"https://www.vision-net.co.jp/",
 "株式会社アイスタイル":"https://www.istyle.co.jp/","株式会社ジーニー":"https://geniee.co.jp/",
@@ -1194,6 +1187,13 @@ const CURL={
 "株式会社プチジョブ":"https://www.petitjob.co.jp/","アクシオンリサーチ株式会社":"https://www.axionr.com/","株式会社BALEUM":"https://baleum.co.jp/",
 "the Babels, Inc.":"https://www.babels.co/","株式会社JLBC":"https://jlbc.jp/","WQC株式会社":"https://www.wqctech.com/"
 };
+
+/* partners marquee — クリックで各社サイトへ（ロゴ画像スラッグ→社名。URLはCURLから引く） */
+const PARTNERS=[["vectorinc","株式会社ベクトル"],["vision","株式会社ビジョン"],["istyle","株式会社アイスタイル"],["geniee","株式会社ジーニー"],["glm","GLM株式会社"],["finc","株式会社FiNC"],["fabbit","fabbit株式会社"],["donutrobotics","ドーナツ・ロボティクス株式会社"]];
+const mq=document.getElementById("marquee");
+const buildLogos=()=>PARTNERS.map(([p,name])=>{const img=`<img src="img/partner/${p}.png" alt="${p}">`;const u=CURL[name];
+  return u?`<a class="logo" href="${u}" target="_blank" rel="noopener">${img}</a>`:`<div class="logo">${img}</div>`;}).join("");
+mq.innerHTML=buildLogos()+buildLogos();
 
 /* 投資先・パートナー企業（全33社）。先頭は上場各社を時価総額の大きい順（2026/6時点）、以降は非上場。APAMANは掲載除外。 */
 const PCO=[

@@ -11,7 +11,9 @@ const ORIGIN = 'https://boardwalkcapitalinc.com';
 const LANGS = ['en','zh','ko','it','fr','es','de','pt','nl','ru','ar','hi','zh-Hant'];
 const OG_LOCALE = { en:'en_US', zh:'zh_CN', 'zh-Hant':'zh_TW', ko:'ko_KR', it:'it_IT', fr:'fr_FR', es:'es_ES', de:'de_DE', pt:'pt_BR', nl:'nl_NL', ru:'ru_RU', ar:'ar_AR', hi:'hi_IN' };
 
-const src = readFileSync(join(HERE, 'index.html'), 'utf8');
+let src = readFileSync(join(HERE, 'index.html'), 'utf8');
+// 冪等化: 既存のhreflang注入を除去(sourceが過去のビルド出力を兼ねても重複しない)。canonicalは残す。
+src = src.replace(/<link rel="alternate" hreflang="[^"]*"[^>]*>\s*/g, '');
 const m = src.match(/const I18N=[\s\S]*?const SUPPORTED=Object\.keys\(I18N\);/)[0];
 const I18N = new Function(m + ';return I18N;')();
 const NEWS = new Function(src.match(/const NEWS=\[[\s\S]*?\];/)[0] + ';return NEWS;')();
@@ -28,7 +30,7 @@ function renderNews(lc) {
   return NEWS.map(n => {
     const cat = (n.cat && (n.cat[lc] || n.cat.en)) || '';
     const ttl = (n.title[lc] || n.title.en);
-    return `<div class="news-card"><div class="thumb"><img src="/${n.img}" alt=""></div><div class="body"><div class="meta"><span class="date">${n.date}</span><span class="cat">${cat}</span></div><div class="ttl">${ttl}</div></div></div>`;
+    return `<div class="news-card"><div class="thumb"><img src="/${n.img}" alt="" loading="lazy" decoding="async"></div><div class="body"><div class="meta"><span class="date">${n.date}</span><span class="cat">${cat}</span></div><div class="ttl">${ttl}</div></div></div>`;
   }).join('');
 }
 
@@ -62,13 +64,16 @@ function build(lc, isRoot) {
     html = html.replace(/(<meta property="og:locale" content=")[^"]*(")/, (mm, a, b) => a + (OG_LOCALE[lc] || 'en_US') + b);
     // サブフォルダから参照できるよう画像等の相対パスを絶対化(#アンカーは温存)
     html = html.replace(/src="img\//g, 'src="/img/').replace(/url\((['"]?)img\//g, 'url($1/img/');
-    // CJK専用Webフォント(該当言語ページのみ注入。端末フォント任せ=豆腐/フォント混在を防ぐ。他言語ページは重くしない)
-    const CJK = { ko:'Noto Sans KR', zh:'Noto Sans SC', 'zh-Hant':'Noto Sans TC' };
-    if (CJK[lc]) {
-      const fam = CJK[lc];
-      html = html.replace('&display=swap', `&family=${fam.replace(/ /g, '+')}:wght@400;500;700;900&display=swap`);
-      const ov = `<style>html[lang="${lc}"] body,html[lang="${lc}"] .jp{font-family:"${fam}","Noto Sans JP",sans-serif}</style>`;
-      html = html.replace('</head>', ov + '\n</head>');
+    // 文字体系別Webフォントを該当言語ページのみ注入(端末フォント任せ=豆腐/フォント混在を防ぐ。他言語ページは重くしない)。
+    // CJK(ko/zh/zh-Hant)は基底CSSに書体指定が無いので<style>も注入。ar/hiは基底CSSに既定ありのためリンクのみ。
+    const PERLANG = { ko:['Noto Sans KR','400;500;700;900'], zh:['Noto Sans SC','400;500;700;900'], 'zh-Hant':['Noto Sans TC','400;500;700;900'], ar:['Noto Sans Arabic','400;500;700'], hi:['Noto Sans Devanagari','400;500;700'] };
+    if (PERLANG[lc]) {
+      const [fam, wght] = PERLANG[lc];
+      html = html.replace('&display=swap', `&family=${fam.replace(/ /g, '+')}:wght@${wght}&display=swap`);
+      if (lc === 'ko' || lc === 'zh' || lc === 'zh-Hant') {
+        const ov = `<style>html[lang="${lc}"] body,html[lang="${lc}"] .jp{font-family:"${fam}","Noto Sans JP",sans-serif}</style>`;
+        html = html.replace('</head>', ov + '\n</head>');
+      }
     }
   }
   // title / description(タイトルも各言語のヒーローコピーで言語化)
@@ -81,6 +86,7 @@ function build(lc, isRoot) {
   html = html.replace(/(<meta property="og:description" content=")[^"]*(")/, (mm, a, b) => a + desc + b);
   html = html.replace(/(<meta name="twitter:description" content=")[^"]*(")/, (mm, a, b) => a + desc + b);
   html = html.replace(/(<meta property="og:title" content=")[^"]*(")/, (mm, a, b) => a + title + b);
+  html = html.replace(/(<meta name="twitter:title" content=")[^"]*(")/, (mm, a, b) => a + title + b);
   html = html.replace(/(<meta property="og:url" content=")[^"]*(")/, (mm, a, b) => a + (isRoot ? ORIGIN + '/' : ORIGIN + '/' + lc + '/') + b);
   // canonical + hreflang
   const canonical = isRoot ? `${ORIGIN}/` : `${ORIGIN}/${lc}/`;
@@ -94,8 +100,9 @@ function build(lc, isRoot) {
 
 // sitemap
 function sitemap() {
+  const lastmod = new Date().toISOString().slice(0, 10);
   const urls = [`${ORIGIN}/`, ...LANGS.map(l => `${ORIGIN}/${l}/`)];
-  const body = urls.map(u => `  <url><loc>${u}</loc><changefreq>monthly</changefreq><priority>${u === ORIGIN + '/' ? '1.0' : '0.8'}</priority></url>`).join('\n');
+  const body = urls.map(u => `  <url><loc>${u}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>${u === ORIGIN + '/' ? '1.0' : '0.8'}</priority></url>`).join('\n');
   writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`, 'utf8');
 }
 

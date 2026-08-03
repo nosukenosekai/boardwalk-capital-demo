@@ -30,8 +30,9 @@ function renderNews(lc) {
   return NEWS.map(n => {
     const cat = (n.cat && (n.cat[lc] || n.cat.en)) || '';
     const ttl = (n.title[lc] || n.title.en);
-    const thumb = n.img ? `<div class="thumb"><img src="/${n.img}" alt="" loading="lazy" decoding="async"></div>` : '';
-    return `<div class="news-card${n.img ? '' : ' no-img'}">${thumb}<div class="body"><div class="meta"><span class="date">${n.date}</span><span class="cat">${cat}</span></div><div class="ttl">${ttl}</div></div></div>`;
+    const thumb = n.logo ? `<div class="thumb logo"><img src="/${n.logo}" alt="" loading="lazy" decoding="async"></div>` : n.img ? `<div class="thumb"><img src="/${n.img}" alt="" loading="lazy" decoding="async"></div>` : '';
+    const hasImg = n.logo || n.img;
+    return `<div class="news-card${hasImg ? '' : ' no-img'}">${thumb}<div class="body"><div class="meta"><span class="date">${n.date}</span><span class="cat">${cat}</span></div><div class="ttl">${ttl}</div></div></div>`;
   }).join('');
 }
 
